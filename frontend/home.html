@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="homestyle.css">
+</head>
+
+<body>
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <div class="background banner">
+        <img src="homepic/clothes1.png" class="img-fluid clothes" alt="Responsive image" />
+        <div class="form-group searchInput">
+            <i class="fas fa-search"></i>
+            <input type="text" class="form-control" id="searchText" placeholder="Cloth, Smartphone, ...">
+        </div>
+        <div>
+            <div class="bottom-left">
+                <div class="BigText">Fashion Clothes</div><span class="SmallText">Discount more than 20%</span>
+            </div>
+        </div>
+        <i class="fas fa-shopping-cart"></i>
+        <i class="far fa-user"></i>
+    </div>
+    <div class="background">
+        <img src="homepic/media1.png" class="img-fluid media" alt="Responsive image" />
+            <div>
+                <div class="bottom-left">
+                    <div class="BigText">Smartphone, Gadget</div><span class="SmallText">Discount more than 50%</span>
+                </div>
+            </div>
+    </div>
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <div class="container">
+        <div class="category">
+            <div>Category</div>
+        </div>
+        <div id="categoryList" class="row categoryList">
+        </div>
+    </div>
+    <script>
+            function generateProductCategoryCard() {
+                var categoryNameArr = ["Women Clothes", "Men Clothes", "Cosmetics", "Smartphones", "Food & Drink", "Books"];
+                var categoryImgArr = ["dress.png", "tshirt.png", "make-up.png", "smartphone.png", "diet.png", "library.png"];
+                let result = '';
+                for (var i = 0; i < 6; i++) {
+                    result += `
+                            <div class="col-4">
+                                <div class="card categoryCard" style="width: 100%;">
+                                    <img class="card-img-top"  src='homepic/${categoryImgArr[i]}'>
+                                    <div class="card-body">
+                                        <p class="card-text">${categoryNameArr[i]}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `
+                }
+                document.getElementById("categoryList").innerHTML = result
+            }
+    
+            window.onload = function () {
+                generateProductCategoryCard()
+            }
+        </script>
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
+</body>
+
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+
+    </div>
+
+</body>
+
+</html>
