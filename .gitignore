@@ -25,3 +25,4 @@ api/nbbuild/
 api/dist/
 api/nbdist/
 api/.nb-gradle/
+\.idea/
