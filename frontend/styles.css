@@ -1,0 +1,72 @@
+
+body{
+    background-color: #F9F5F4;
+}
+.container{
+    margin-top: 5%;
+}
+.form-control{
+    border-radius: 20px;
+    text-indent: 25px;
+    margin-bottom: 10%;
+}
+.form-control pw {
+   margin-bottom: 5%;
+}
+.btn{
+    border-radius: 30px;
+    width: 80%;
+    border-color: white;
+    height: 43px;
+    position: relative ;
+    left: 33px;
+    
+}
+
+.btnlogin{
+    background-image: linear-gradient(to right,#D3544A, #F5A23A);
+}
+
+.btnfacebook{
+    background-image: linear-gradient(to right, #4692C6,#0C373E);
+    margin-bottom: 20%;
+}
+
+.form-group {
+    position: relative;
+    color: #aaa;
+    font-size: 16px;
+    position: relative ;
+    width: 80%;
+    left: 33px;
+}
+
+.fa-user , .fa-unlock-alt,.fab fa-facebook-f{ 
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+
+ .fab {
+   margin-right: 5%;
+ }
+
+.forgot{
+    color: black;
+    font-size: 15px;
+    text-align: right;
+    right: 20;
+    margin-top:  -5%;
+  }
+  .or{
+    text-align:center;
+    
+  }
+  .regist{
+      text-align: center;
+      
+  }
+  .fb{
+     color: #D3544A;
+  }
+ 

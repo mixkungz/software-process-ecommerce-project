@@ -1,0 +1,110 @@
+/* FONT */
+@font-face {
+    font-family: THSarabunNew;
+    src: url(THSarabunNew.ttf);
+}
+
+body {
+    font-family: THSarabunNew;
+    background-color: #F8F4F4;
+}
+
+/* --------------------------------------------------------------------------------------------------------------- */
+/* รูปเสื้อที่เป็น BG */
+.background {
+    position: relative;
+    color: white;
+    padding-left: 0%;
+    padding-right: 0%;
+    background-color: #000000;
+}
+  
+/* รูปเสื้อมืดขึ้น */
+.clothes {
+    opacity: 0.8;
+}
+  
+/* ทำให้ช่อง search อยู่บนรูปด้านซ้าย */
+.searchInput {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    width: 75%;
+}
+/* ทำให้ text อยู่ด้านซ้ายล่างของรูป */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+.BigText {
+    font-size: 30px;
+    margin-bottom: -15px;
+}
+.SmallText {
+    font-size: 20px;
+}
+/* icon แว่นขยาย เป็นสีขาว */
+.fa-search {
+    color: white;
+}
+  
+/* การทำให้ form search เป็น tranparent */
+.form-control {
+    background: transparent;
+    border-color: white;
+    border-width: 2px;
+    color: white;
+    border-radius: 20px;
+    text-indent: 30px;
+    font-size: 18px;
+    padding-bottom: 1%;
+}
+  
+#searchText::-webkit-input-placeholder {
+      color: white !important;
+}
+  
+.fa-shopping-cart {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+}
+  
+.fa-user {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+  
+/* --------------------------------------------------------------------------------------------------------------- */
+.container{
+    margin-top: 4%;
+}
+
+.category{
+    color: #d14b4b;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.categoryCard{
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0)
+}
+
+.card-body{
+    padding: 10% 0% 10% 0%;
+    text-align: center;
+}
+.card-text{
+    color: #d14b4b;
+    font-size: 17px;
+}
+
+.fa-search {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+}
+
