@@ -82,22 +82,25 @@ body {
     margin-top: 4%;
 }
 
-.category{
+.topic{
     color: #d14b4b;
     font-size: 25px;
     font-weight: bold;
+    margin-bottom: 2%;
 }
 
 .categoryCard{
     background-color: transparent;
-    border: 1px solid rgba(0,0,0,0)
+    border: 1px solid rgba(0,0,0,0);
+    width: 100%;
 }
 
-.card-body{
+.categoryName{
     padding: 10% 0% 10% 0%;
     text-align: center;
 }
-.card-text{
+
+.cateName{
     color: #d14b4b;
     font-size: 17px;
 }
@@ -106,5 +109,40 @@ body {
   position: absolute;
   top: 12px;
   left: 15px;
+}
+
+/* --------------------------------------------------------------------------------------------------------------- */
+.shopLogo{
+    width: 14%;
+    border-radius: 50%;
+    margin-top: -2%;
+}
+
+.line{
+    margin-top: -8%;
+    margin-bottom: 4%;
+}
+
+.productDetail{
+    padding: 7%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.shopName{
+    margin-left: 5%;
+}
+
+.productName, .productPrice{
+    font-weight: bold;
+    margin-bottom: 0%;
+}
+
+.productPrice{
+    margin-bottom: -7%;
+}
+
+.productCard{
+    margin-bottom: 4%;
 }
 
