@@ -37,7 +37,7 @@ public class Address implements Serializable {
 
     public String getAddressDescription() { return addressDescription; }
 
-    public void setAddressDescription(String addressDescription) { this.soi = addressDescription; }
+    public void setAddressDescription(String addressDescription) { this.addressDescription = addressDescription; }
 
     public String getDistrict() { return district; }
 
