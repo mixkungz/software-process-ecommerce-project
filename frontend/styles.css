@@ -2,6 +2,9 @@
 body{
     background-color: #F9F5F4;
 }
+img{
+    margin-left: 33%;
+}
 .container{
     margin-top: 5%;
 }
