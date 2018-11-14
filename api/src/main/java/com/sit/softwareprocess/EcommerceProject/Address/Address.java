@@ -13,16 +13,9 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @NotNull
-    @Column(name = "home_number")
-    String homeNumber;
-
-    String soi;
-
     @NotBlank
-    String road;
-
-    String village;
+    @Column(name = "address_description")
+    String addressDescription;
 
     @NotBlank
     String district;
@@ -42,21 +35,9 @@ public class Address implements Serializable {
 
     public int getId() { return id; }
 
-    public String getHomeNumber() { return homeNumber; }
+    public String getAddressDescription() { return addressDescription; }
 
-    public void setHomeNumber(String homeNumber) { this.homeNumber = homeNumber; }
-
-    public String getSoi() { return soi; }
-
-    public void setSoi(String soi) { this.soi = soi; }
-
-    public String getRoad() { return road; }
-
-    public void setRoad(String road) {this.road = road; }
-
-    public String getVillage() { return village; }
-
-    public void setVillage(String village) { this.village = village; }
+    public void setAddressDescription(String addressDescription) { this.soi = addressDescription; }
 
     public String getDistrict() { return district; }
 
