@@ -13,4 +13,8 @@ public class PaymentService {
     public List<Payment> getAllPayment(){
         return paymentRepository.findAll();
     }
+
+    public Payment getPaymentById(int id){
+        return paymentRepository.getOne(id);
+    }
 }
