@@ -31,58 +31,120 @@
     </div>
     <div class="background">
         <img src="homepic/media1.png" class="img-fluid media" alt="Responsive image" />
-            <div>
-                <div class="bottom-left">
-                    <div class="BigText">Smartphone, Gadget</div><span class="SmallText">Discount more than 50%</span>
-                </div>
+        <div>
+            <div class="bottom-left">
+                <div class="BigText">Smartphone, Gadget</div><span class="SmallText">Discount more than 50%</span>
             </div>
+        </div>
     </div>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
     <div class="container">
-        <div class="category">
+        <div class="topic">
             <div>Category</div>
         </div>
         <div id="categoryList" class="row categoryList">
         </div>
     </div>
     <script>
-            function generateProductCategoryCard() {
-                var categoryNameArr = ["Women Clothes", "Men Clothes", "Cosmetics", "Smartphones", "Food & Drink", "Books"];
-                var categoryImgArr = ["dress.png", "tshirt.png", "make-up.png", "smartphone.png", "diet.png", "library.png"];
-                let result = '';
-                for (var i = 0; i < 6; i++) {
-                    result += `
+        function generateProductCategoryCard() {
+            var categoryNameArr = ["Women Clothes", "Men Clothes", "Cosmetics", "Smartphones", "Food & Drink", "Books"];
+            var categoryImgArr = ["dress.png", "tshirt.png", "make-up.png", "smartphone.png", "diet.png", "library.png"];
+            let resultOfCategory = '';
+            for (var i = 0; i < 6; i++) {
+                resultOfCategory += `
                             <div class="col-4">
-                                <div class="card categoryCard" style="width: 100%;">
+                                <div class="card categoryCard">
                                     <img class="card-img-top"  src='homepic/${categoryImgArr[i]}'>
-                                    <div class="card-body">
-                                        <p class="card-text">${categoryNameArr[i]}</p>
+                                    <div class="card-body categoryName">
+                                        <p class="card-text cateName">${categoryNameArr[i]}</p>
                                     </div>
                                 </div>
                             </div>
                         `
-                }
-                document.getElementById("categoryList").innerHTML = result
             }
-    
-            window.onload = function () {
-                generateProductCategoryCard()
-            }
-        </script>
+            document.getElementById("categoryList").innerHTML = resultOfCategory
+        }
+    </script>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-</body>
-
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<body>
-
-
+    <div class="container">
+        <div class="topic">
+            <div>Daily product for you</div>
+        </div>
+        <div id="productList" class="row productList">
+        </div>
     </div>
+    <script>
+        function generateProductCard() {
+            var shopLogoArr = ["mustard.jpg", "veronica.jpg", "iStudio.png", "toysrus.png", "JBL.jpg", "sony.jpg"];
+            var shopNameArr = ["Mustard Sneakers", "Veronica Beard", "iStudio", "Toys R Us", "JBL", "Sony"];
+            var productImgArr = ["sneakerOrange.jpg", "skirt.png", "iphonex.png", "hh.jpg", "JBL Headphone.jpg", "sony.png"];
+            var productNameArr = ["Alexis in Mustard", "Monroe Skirt", "iPhone X 64 GB", "Cooking Food Toy", "JBL E30 Blue", "Sony A7iii"];
+            var productPriceArr = ["1790.00฿", "395.00฿", "32,500.00฿", "3,220.00฿", "3,590.00฿", "75,900.00฿"];
+            let resultOfProduct = '';
+            for (var i = 0; i < 6; i++) {
+                resultOfProduct += `
+                                <div class="col-6 productCard">
+                                    <div class="card " style="width: 100%;">
+                                        <img class="card-img-top" src="products/${productImgArr[i]}">
+                                        <div class="card-body productDetail">
+                                            <p class="card-title"><img class="shopLogo" src="shopLogo/${shopLogoArr[i]}"><span class="shopName">${shopNameArr[i]}</span></p>
+                                            <hr class="line">
+                                            <p class="card-text productName">${productNameArr[i]}</p>
+                                            <p class="card-text productPrice" style="text-align:right;">${productPriceArr[i]}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+            }
+            document.getElementById("productList").innerHTML = resultOfProduct;
+        }
+
+        window.onload = function () {
+            generateProductCategoryCard()
+            generateProductCard()
+        }
+    </script>
+    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <div class="container">
+        <div class="more">
+            <div>--- More Product ---</div>
+        </div>
+    </div>
+    <div class="container contact">
+        <div class="row">
+            <div class="col-6">
+            </div>
+            <div class="col-6 right">
+                Contact us
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 left">
+                Oned Shopping
+            </div>
+            <div class="col-6 right">
+                080-080-4599
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- <p>Post title : <span id="post-title"></span></p>
+    <p>Post body : <span id="post-body"></span></p>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+        axios.get('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+            console.log(response);
+            console.log(response.data);
+            document.getElementById("post-title").innerHTML = response.data[0].body
+            document.getElementById("post-body").innerHTML = response.data[0].title
+        })
+    </script> -->
 
 </body>
 

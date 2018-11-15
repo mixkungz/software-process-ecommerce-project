@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="productDetailStyle.css">
+</header>
+
+<body>
+    <div class="container" style="margin-bottom: 10px;">
+        <div class="cartCount">
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-circle"><span></span></i>
+        </div>
+        <div class="w3-content w3-display-container" style="max-width:800px">
+            <img class="mySlides" src="sneakers/sneakerOrange.jpg">
+            <img class="mySlides" src="sneakers/sneakerGreen.jpg">
+            <img class="mySlides" src="sneakers/sneakerBlue.jpg">
+            <img class="mySlides" src="sneakers/sneakerYellow.jpg">
+            <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+                <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+            </div>
+        </div>
+        <div style="text-align:center; font-family: THSarabanNew">
+            <i class="fab fa-gg-circle" style="vertical-align:middle"></i>
+            <span style="font-size: 14pt"><strong>Mustard Sneakers</strong></span>
+            <hr style="width:70%; margin-left:15%; margin-right:15%;" />
+            <span style="font-size: 18pt;"><strong>Alexis in Mustard</strong></span>
+            <br>
+            <span style="font-size: 14pt;"><strong>1,790.00฿</strong></span>
+            <hr style="width:24%; margin-left:38%; margin-right:38%; background-color: black" />
+            <p style="font-size: 14pt; word-spacing: 0.5cm"><strong><u>36</u> 37 38 39 40</strong></p>
+            <p style="word-spacing: 0.35cm">
+                <i class="fas fa-square underlineImage" style="color:#C56157"></i>
+                <i class="fas fa-square" style="color:#7A7152"></i>
+                <i class="fas fa-square" style="color:#2C2F40"></i>
+                <i class="fas fa-square" style="color:#D5BA77"></i>
+            </p>
+            <p style="font-size: 12pt;font-weight: bold">
+                Slip-on rope to wear comfortable. Who stressed the <br> 
+                mobility. Do not want to waste time tying a rope <br> 
+                this is the answer! Simple design and classic design <br> 
+                make it easy to pick up at any occasion. It’s also <br> 
+                a secret that is different than any other.
+            </p>
+            <button class="botton" style="font-size: 18pt"><strong>Add to cart</strong></button>
+            <br>
+        </div>
+
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+@font-face {
+    font-family: THSarabanNew;
+    src: url(THSarabunNew.ttf);
+}
+
+.botton{
+        background-color: #D14B4B; /* Green */
+        border: none;
+        color: white;
+        padding: 1px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0px 10px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        border-radius: 18px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.fa-square{
+    font-size: 25pt
+}
+
+.underlineImage{
+    border-bottom:1px solid black;
+    text-decoration: none;
+    color:#000001 ;
+}
+
+.fa-shopping-cart{
+    color: #d14b4b;
+    font-size: 27pt;
+}
+.cartCount{
+    text-align: right;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.fa-circle{
+    position: absolute;
+    top: 0.5%;
+    right: 2%;
+    font-size: 22px;
+    color:#FFCC00;
+}
+
+.fa-gg-circle{
+    font-size: 26px;
+    color:#FFCC00;
+}
+
+body{
+    background-color: #F8F4F4;
+}
+
+.mySlides {
+    display: none;
+    width:auto; height: 350px; margin: 0 auto 1em auto;
+}
+
+.w3-left,
+.w3-right,
+.w3-badge {
+    cursor: pointer
+}
+
+.w3-badge {
+    height: 13px;
+    width: 13px;
+    padding: 0
+}
+
+
+
