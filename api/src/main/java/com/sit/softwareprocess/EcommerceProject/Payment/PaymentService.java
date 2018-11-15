@@ -10,7 +10,7 @@ public class PaymentService {
     @Autowired
     PaymentRepository paymentRepository;
 
-    public List<Payment> getAllPayment(){
+    public List<Payment> getAllPayments(){
         return paymentRepository.findAll();
     }
 
