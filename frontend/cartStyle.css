@@ -1,0 +1,55 @@
+.topic{
+
+    background-color:#d14b4b;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+
+    font-size: 32px;
+    font-weight: bolder;
+    color: white;
+    padding-top: 0.5%;
+}
+
+
+@font-face {
+    font-family: THSarabunNew;
+    src: url(THSarabunNew.ttf);
+}
+
+body {
+    font-family: THSarabunNew;
+    background-color: #F8F4F4;
+}
+
+.form-check{
+    padding-left: 12%;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.shopName{
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 2%;
+}
+
+.form-check-input{
+    width: 5%;
+    height: 66%;
+}
+
+.form-check-label{
+    padding-left: 2.5%;
+
+}
+
+.shopLogo{
+    width: 12%;
+    border-radius: 50%;
+    margin-top: -2%;
+}
+
+.card-title{
+    padding-left: 4%;
+}
