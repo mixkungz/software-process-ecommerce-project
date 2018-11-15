@@ -95,6 +95,10 @@ body {
     width: 100%;
 }
 
+.categoryCard:active{
+    background-color:rgba(255,255,255,0.5);
+}
+
 .categoryName{
     padding: 10% 0% 10% 0%;
     text-align: center;
@@ -146,3 +150,24 @@ body {
     margin-bottom: 4%;
 }
 
+.more{
+    color: #d14b4b;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.contact{
+    background-color: #d14b4b;
+    color: white;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.right{
+    text-align: right;
+    padding-right: 8%;
+}
+.left{
+    padding-left: 8% 
+}

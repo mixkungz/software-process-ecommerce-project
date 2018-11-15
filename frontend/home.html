@@ -82,7 +82,7 @@
             var productPriceArr = ["1790.00฿", "395.00฿", "32,500.00฿", "3,220.00฿", "3,590.00฿", "75,900.00฿"];
             let resultOfProduct = '';
             for (var i = 0; i < 6; i++) {
-                resultOfProduct +=   `
+                resultOfProduct += `
                                 <div class="col-6 productCard">
                                     <div class="card " style="width: 100%;">
                                         <img class="card-img-top" src="products/${productImgArr[i]}">
@@ -105,6 +105,46 @@
         }
     </script>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <div class="container">
+        <div class="more">
+            <div>--- More Product ---</div>
+        </div>
+    </div>
+    <div class="container contact">
+        <div class="row">
+            <div class="col-6">
+            </div>
+            <div class="col-6 right">
+                Contact us
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 left">
+                Oned Shopping
+            </div>
+            <div class="col-6 right">
+                080-080-4599
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- <p>Post title : <span id="post-title"></span></p>
+    <p>Post body : <span id="post-body"></span></p>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+        axios.get('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+            console.log(response);
+            console.log(response.data);
+            document.getElementById("post-title").innerHTML = response.data[0].body
+            document.getElementById("post-body").innerHTML = response.data[0].title
+        })
+    </script> -->
 
 </body>
 
