@@ -10,7 +10,7 @@ public class ShippingService {
     @Autowired
     ShippingRepository shippingRepository;
 
-    public List<Shipping> getAllShippingType(){
+    public List<Shipping> getAllShipping(){
 
         List<Shipping> shipping = shippingRepository.findAll();
         return shipping;
