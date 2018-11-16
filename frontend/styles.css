@@ -5,28 +5,31 @@
 }
 body{
     background-color: #F8F4F4;
-    
-   
+    font-family:THSarabunNew;
+    font-size: 22px;
 }
 img{
-    margin-left: 33%;
+    margin-left: 27%;
+    width: 45%;
 }
 .container{
-    margin-top: 5%;
-    font-family: THSarabunNew ; 
-    font-size: 25px; 
+    margin-top: 3%; 
+    font-size: 22px; 
 }
 .form-control{
     border-radius: 20px;
     text-indent: 25px;
-    margin-bottom: 10%;
+    margin-bottom: 7%;
+    font-family:THSarabunNew;
+    font-size: 19px;
     background-color: #F8F4F4;
-   
 
 }
 
 .form-control pw {
    margin-bottom: 5%;
+   font-family:THSarabunNew;
+   font-size: 19px;
   
 }
 .btn{
@@ -41,11 +44,18 @@ img{
 
 .btnlogin{
     background-image: linear-gradient(to right,#D3544A, #F5A23A);
+    margin-bottom: 5%;
+    font-family:THSarabunNew;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .btnfacebook{
     background-image: linear-gradient(to right, #4692C6,#0C373E);
-    margin-bottom: 20%;
+    margin-bottom: 22%;
+    font-family:THSarabunNew;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .form-group {
@@ -61,6 +71,7 @@ img{
     position: absolute;
     top: 10px;
     left: 15px;
+    font-size: 3%;
   }
 
  .fab {
@@ -69,17 +80,23 @@ img{
 
 .forgot{
     color: black;
-    font-size: 15px;
     text-align: right;
     right: 20;
     margin-top:  -5%;
+    margin-bottom: 0%;
+    font-family:THSarabunNew;
+    font-size: 18px;
   }
-  .or{
+.or{
     text-align:center;
+    font-family:THSarabunNew;
+    font-size: 22px;
     
   }
-  .regist{
+.regist{
       text-align: center;
+      font-family:THSarabunNew;
+      font-size: 22px;
       
   }
   .fb{
