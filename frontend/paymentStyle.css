@@ -1,0 +1,48 @@
+body{
+    background-color: #F8F4F4;
+}
+
+@font-face {
+    font-family: THSarabanNew;
+    src: url(THSarabunNew.ttf);
+}
+
+.container{
+    font-family: THSarabanNew;
+    margin-top: 5%;
+}
+
+.headTitle{
+    font-size: 14pt;
+    margin-left: 5%;
+}
+
+.detail{
+    font-size: 14pt;
+    margin-left: 10%;
+}
+
+.button{
+    background-color: #D14B4B; 
+    border: none;
+    color: white;
+    padding: 1px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+footer {
+    text-align: center;
+    bottom: 0;  
+    z-index: 100; 
+ }
+
+input{
+    margin-left: 10%
+}
