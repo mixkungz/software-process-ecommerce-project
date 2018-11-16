@@ -1,4 +1,6 @@
 .topic{
+    position: fixed;
+    z-index: 1;
 
     background-color:#d14b4b;
     width: 100%;
@@ -11,7 +13,6 @@
     padding-top: 0.5%;
 }
 
-
 @font-face {
     font-family: THSarabunNew;
     src: url(THSarabunNew.ttf);
@@ -23,9 +24,11 @@ body {
 }
 
 .form-check{
-    padding-left: 12%;
+    padding-left: 14%;
     font-size: 22px;
     font-weight: bold;
+    margin-top: 1px;
+    padding-top: 51px;
 }
 
 .shopName{
@@ -36,7 +39,7 @@ body {
 
 .form-check-input{
     width: 5%;
-    height: 66%;
+    height: 28%;
 }
 
 .form-check-label{
@@ -52,4 +55,142 @@ body {
 
 .card-title{
     padding-left: 4%;
+}
+
+.productName{
+    font-size: 22px;
+    font-weight: bold;
+    color: #d14b4b;
+}
+
+.form-select{
+    text-align: right;
+    margin-right: -3%;
+}
+
+.productAttr{
+    font-size: 22px;
+    color: black;
+}
+
+.productPrice{
+    font-size: 21px;
+    font-weight: bold;
+    color: black;
+}
+
+.selectItem{
+    margin-right: -2.5%
+}
+
+.productImg{
+    border-radius: 0px;
+}
+.tagImg{
+    margin-right: -2.5%
+}
+
+.productDetail{
+    margin-bottom: -5px;
+}
+
+.price{
+    margin-top: 7px;
+}
+.form-select{
+    position: absolute;
+    margin-top: 1.1rem;
+    margin-left: -0.25rem;
+    width: 23px;
+    height: 19px;
+}
+
+/* เพิ่ม ลด จำนวนสินค้า */
+#del{
+    border-radius: 20px;
+    padding-right: 20px;
+    height: 0%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#add{
+    border-radius: 20px;
+    padding-left: 20px;
+    height: 0%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.number{
+    margin-left: -15%;
+    margin-right: -15%;
+    z-index: 1;
+    border:1px solid black;
+    text-align: center;
+    font-size: .875rem;
+    background-color: white;
+    z-index: 2;
+    padding: 0px 8px 0px 8px;
+}
+
+.btn{
+    background-color: white;    
+    border-color: black;
+    color: black;
+}
+
+.btn:active{
+    color: black;
+    background-color: white !important;
+    border-color: black;
+}
+
+
+#add:focus{
+    box-shadow:none !important;
+    background-color: white;
+    border-color: black;
+    color: black; 
+}
+
+#del:focus{
+    box-shadow:none !important;    
+    background-color: white;
+    border-color: black;
+    color: black; 
+}
+
+.btn-group{
+    padding-top: 9px;
+    margin-right: -35px;
+}
+
+.productInCart{
+    background-color: white;
+    padding-top: 13px;
+    margin-top: -16px;
+    height: 161px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px RGBA(0,0,0,0.05);
+}
+
+/* ปุ่ม order */
+.order{
+    text-align: center;
+}
+.buttonOrder{
+    background-color: #D14B4B; /* Green */
+    border: none;
+    color: white;
+    padding: 1px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 10px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
