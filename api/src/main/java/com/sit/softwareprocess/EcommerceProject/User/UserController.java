@@ -11,6 +11,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(
             method = RequestMethod.GET,
             value = "/users/{id}"
