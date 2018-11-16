@@ -178,12 +178,13 @@ body {
 /* ปุ่ม order */
 .order{
     text-align: center;
+    margin-top: -4%;
 }
 .buttonOrder{
     background-color: #D14B4B; /* Green */
     border: none;
     color: white;
-    padding: 1px 80px;
+    padding: 1px 99px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -193,4 +194,20 @@ body {
     transition-duration: 0.4s;
     border-radius: 18px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+
+}
+.total{
+    font-size: 25px;
+    font-weight: bolder;
+    margin-left: 2rem;
+
+}
+
+.calPrice{
+        font-size: 25px;
+        font-weight: bolder;
+        padding-top: 0.5%;
+        text-align: right;
+        margin-right: 4%;
 }
