@@ -1,5 +1,11 @@
 package com.sit.softwareprocess.EcommerceProject.Address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sit.softwareprocess.EcommerceProject.Order.Order;
+import com.sit.softwareprocess.EcommerceProject.OrderDetail.OrderDetail;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -30,6 +36,12 @@ public class Address implements Serializable {
     @NotBlank
     String postcode;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
+    @JoinColumn(name = "order_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    Order order;
+
     public Address() {
     }
 
@@ -54,4 +66,8 @@ public class Address implements Serializable {
     public String getPostcode() { return postcode; }
 
     public void setPostcode(String postcode) { this.postcode = postcode; }
+
+    public Order getOrder() { return order; }
+
+    public void setOrder(Order order) { this.order = order; }
 }
