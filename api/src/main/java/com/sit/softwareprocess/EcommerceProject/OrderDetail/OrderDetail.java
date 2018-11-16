@@ -3,10 +3,11 @@ package com.sit.softwareprocess.EcommerceProject.OrderDetail;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "orderDetail")
-public class OrderDetail {
+public class OrderDetail implements Serializable {
     @EmbeddedId
     CompositePrimaryKey id;
 
