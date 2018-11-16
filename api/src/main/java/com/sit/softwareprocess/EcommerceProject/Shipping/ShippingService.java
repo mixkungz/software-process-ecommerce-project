@@ -15,4 +15,11 @@ public class ShippingService {
         List<Shipping> shipping = shippingRepository.findAll();
         return shipping;
     }
+
+    public double calculateShippingPrice(){
+        double shipPrice = 40.00;
+        return shipPrice;
+    }
+
+
 }
