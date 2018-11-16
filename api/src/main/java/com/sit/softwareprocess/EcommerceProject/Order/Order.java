@@ -1,6 +1,7 @@
 package com.sit.softwareprocess.EcommerceProject.Order;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.sit.softwareprocess.EcommerceProject.Address.Address;
 import com.sit.softwareprocess.EcommerceProject.OrderDetail.OrderDetail;
 import com.sit.softwareprocess.EcommerceProject.Payment.Payment;
 import com.sit.softwareprocess.EcommerceProject.Shipping.Shipping;
@@ -27,6 +28,12 @@ public class Order implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     User user;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "address_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    Address address;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "payment_id", nullable = false)
@@ -97,4 +104,8 @@ public class Order implements Serializable {
     public Date getCreateAt() { return createAt; }
 
     public void setCreateAt(Date createAt) { this.createAt = createAt; }
+
+    public Address getAddress() { return address; }
+
+    public void setAddress(Address address) { this.address = address; }
 }
