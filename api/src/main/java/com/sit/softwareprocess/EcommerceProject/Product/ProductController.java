@@ -3,10 +3,7 @@ package com.sit.softwareprocess.EcommerceProject.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +13,7 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @CrossOrigin(origins = "*")
     @RequestMapping(
             method = RequestMethod.GET,
             value = "/products"
@@ -25,7 +23,7 @@ public class ProductController {
             return new ResponseEntity<List<Product>>(products,HttpStatus.OK);
     }
 
-
+    @CrossOrigin(origins = "*")
     @RequestMapping(
             method = RequestMethod.GET,
             value = "/products/{sku}"
