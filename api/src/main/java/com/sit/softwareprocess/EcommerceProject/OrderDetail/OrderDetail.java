@@ -17,6 +17,11 @@ public class OrderDetail implements Serializable {
     public OrderDetail() {
     }
 
+    public OrderDetail(CompositePrimaryKey id, @NotNull int amount) {
+        this.id = id;
+        this.amount = amount;
+    }
+
     public CompositePrimaryKey getId() {
         return id;
     }
