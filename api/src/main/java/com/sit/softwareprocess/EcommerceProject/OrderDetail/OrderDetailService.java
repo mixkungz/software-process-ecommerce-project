@@ -8,4 +8,9 @@ import org.springframework.stereotype.Service;
 public class OrderDetailService {
     @Autowired
     OrderDetailRepository orderDetailRepository;
+
+    public OrderDetail createOrderDetail(int orderId, int productId, int amount){
+        OrderDetail orderDetail = new OrderDetail(new CompositePrimaryKey(orderId,productId), amount);
+        return orderDetailRepository.save(orderDetail);
+    }
 }
