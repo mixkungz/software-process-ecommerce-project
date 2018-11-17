@@ -41,6 +41,16 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(@NotBlank String username, @NotBlank String password, @NotBlank String firstName, @NotBlank String lastName, @NotBlank String email, @NotBlank String telephoneNumber, @NotNull boolean isAdmin) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.telephoneNumber = telephoneNumber;
+        this.isAdmin = isAdmin;
+    }
+
     public int getId() {
         return id;
     }
