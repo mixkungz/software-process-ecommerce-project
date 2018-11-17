@@ -19,13 +19,11 @@ img{
 .form-control{
     border-radius: 20px;
     text-indent: 25px;
-    margin-bottom: 7%;
+    margin-bottom: 4%;
     font-family:THSarabunNew;
     font-size: 19px;
     background-color: #F8F4F4;
-
 }
-
 .form-control pw {
    margin-bottom: 5%;
    font-family:THSarabunNew;
@@ -35,7 +33,6 @@ img{
 .btn{
     border-radius: 30px;
     width: 80%;
-    border-color: white;
     height: 43px;
     position: relative ;
     left: 33px;
@@ -44,6 +41,11 @@ img{
 
 .btnlogin{
     background-image: linear-gradient(to right,#D3544A, #F5A23A);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-block-start-color:#D3544A;
+    border-block-end-color: #F5A23A;
+    border-left-color: #D3544A;
+    border-right-color: #F5A23A;
     margin-bottom: 5%;
     font-family:THSarabunNew;
     font-size: 22px;
@@ -52,6 +54,11 @@ img{
 
 .btnfacebook{
     background-image: linear-gradient(to right, #4692C6,#0C373E);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-block-start-color:#0C373E;
+    border-block-end-color:  #4692C6;
+    border-left-color: #4692C6;
+    border-right-color: #0C373E;
     margin-bottom: 22%;
     font-family:THSarabunNew;
     font-size: 22px;
@@ -69,9 +76,9 @@ img{
 
 .fa-user , .fa-unlock-alt,.fab fa-facebook-f{ 
     position: absolute;
-    top: 10px;
+    top: 14px;
     left: 15px;
-    font-size: 3%;
+    font-size: 55%;
   }
 
  .fab {
@@ -148,7 +155,7 @@ select{
     background-color: #D14B4B; /* Green */
     border: none;
     color: white;
-    padding: 1px 80px;
+    padding: 1px 115px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -158,14 +165,21 @@ select{
     transition-duration: 0.4s;
     border-radius: 18px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    margin-left: 17%;
+    margin-left: 8%;
 }
 .User {
     margin-top: 20%;
 }
 .privacy{
-    width: 85%;
+    width: 83%;
     margin-left: 8%;
     margin-right: 8%;
     margin-bottom: 0%;
+}
+.privacyText{
+    font-size: 19px;
+    font-family: THSarabunNew;
+    margin-top: 0;
+    margin-bottom: 1;
+    margin-left : 2%;
 }
