@@ -249,10 +249,10 @@ select{
     width: 50%;
 }
 .Postcode{
-    width: 98%;
+    width: 100%;
     margin-left: 2%;
     margin-right: 2%;
-    margin-bottom: 18%;
+    margin-bottom: 3%;
     
 }
 
@@ -287,4 +287,7 @@ select{
     margin-top: 0;
     margin-bottom: 1;
     margin-left : 2%;
+}
+.Province{
+    margin-bottom: 35%;
 }
