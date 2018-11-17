@@ -73,6 +73,104 @@ img{
     width: 80%;
     left: 33px;
 }
+.form-control:hover {
+    border-color: #d14b4b;
+  }
+  
+  input:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+  input:focus:-moz-placeholder {
+    color: transparent;
+  } /* FF 4-18 */
+  input:focus::-moz-placeholder {
+    color: transparent;
+  } /* FF 19+ */
+  input:focus:-ms-input-placeholder {
+    color: transparent;
+  } /* IE 10+ */
+  
+  .checkbox {
+    padding-left: 0;
+    justify-content: center;
+  }
+  
+  .checkbox-label {
+    color: #aaa;
+  }
+  
+  .checkbox input[type="checkbox"] {
+    opacity: 0;
+  }
+  
+  .checkbox label {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .checkbox label::before {
+    /* position: absolute; */
+    content: "";
+  
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
+  }
+  .checkbox label::after {
+    position: absolute;
+    content: "";
+  
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
+  }
+  
+  /*Outer box of the fake checkbox*/
+  .checkbox label::before {
+    height: 16px;
+    width: 16px;
+  
+    border: 1px solid;
+    left: 0px;
+  
+    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+       *to vertically center it.
+       */
+    top: 3px;
+  }
+  
+  /*Checkmark of the fake checkbox*/
+  .checkbox label::after {
+    height: 5px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+  
+    transform: rotate(-45deg);
+  
+    left: 4px;
+    top: 10px;
+  }
+  
+  /*Hide the checkmark by default*/
+  .checkbox input[type="checkbox"] + label::after {
+    content: none;
+  }
+  
+  /*Unhide on the checked state*/
+  .checkbox input[type="checkbox"]:checked + label::after {
+    content: "";
+  }
+  
+  /*Adding focus styles on the outer-box of the fake checkbox*/
+  .checkbox input[type="checkbox"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+  }
+  
+  #address {
+    text-indent: 0;
+    margin-top: 9%;
+    margin-bottom: 9%;
+  }
+  
 
 .fa-user , .fa-unlock-alt,.fab fa-facebook-f{ 
     position: absolute;
@@ -116,8 +214,13 @@ img{
     margin-bottom: 0%;
     margin-right: 8%;
 }
+.addrTecxt{
+    margin-bottom: 0%;
+    font-weight: bold;
+    font-size: 22px;
+}
 hr{
-    border-bottom-color: black;
+    margin-top: 0%;
 }
 .ad{
     width: 85%;
@@ -148,14 +251,16 @@ select{
 .Postcode{
     width: 98%;
     margin-left: 2%;
-    margin-right: 2%
+    margin-right: 2%;
+    margin-bottom: 18%;
+    
 }
 
 .botton{
     background-color: #D14B4B; /* Green */
     border: none;
     color: white;
-    padding: 1px 115px;
+    padding: 1px 100px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -165,7 +270,7 @@ select{
     transition-duration: 0.4s;
     border-radius: 18px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    margin-left: 8%;
+    margin-left: 13%;
 }
 .User {
     margin-top: 20%;
