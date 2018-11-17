@@ -47,12 +47,6 @@ public class Order implements Serializable {
     @JsonIgnore
     Shipping shipping;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
-    @JoinColumn(name = "orderDetail_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    OrderDetail OrderDetail;
-
     @NotNull
     @Column(name = "total_price")
     double totalPrice;
@@ -84,10 +78,6 @@ public class Order implements Serializable {
     public Shipping getShipping() { return shipping; }
 
     public void setShipping(Shipping shipping) { this.shipping = shipping; }
-
-    public OrderDetail getOrderDetail() { return OrderDetail; }
-
-    public void setOrderDetail( OrderDetail orderDetail) { OrderDetail = orderDetail; }
 
     public double getTotalPrice() { return totalPrice; }
 

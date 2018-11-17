@@ -36,7 +36,7 @@ public class Address implements Serializable {
     @NotBlank
     String postcode;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "address")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "address")
     @JoinColumn(name = "order_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
