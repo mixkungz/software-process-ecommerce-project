@@ -15,11 +15,11 @@ public class Product implements Serializable {
     int id;
 
     @NotBlank
-    @Column(name = "productname")
+    @Column(name = "product_name")
     String productName;
 
     @NotBlank
-    @Column(name = "productprice")
+    @Column(name = "product_price")
     double productPrice;
 
     @NotBlank
@@ -27,11 +27,11 @@ public class Product implements Serializable {
     int sku;
 
     @NotBlank
-    @Column(name = "productimage")
+    @Column(name = "product_image")
     String productImage;
 
     @NotBlank
-    @Column(name = "productdescription")
+    @Column(name = "product_description")
     String productDescription;
 
     @NotBlank
@@ -54,6 +54,13 @@ public class Product implements Serializable {
     @Column(name = "length")
     double length;
 
+    @NotBlank
+    @Column(name = "size")
+    int size;
+
+    @NotBlank
+    @Column(name = "color")
+    String color;
 
     public Product() {
 
@@ -137,5 +144,21 @@ public class Product implements Serializable {
 
     public void setLength(double length) {
         this.length = length;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }
