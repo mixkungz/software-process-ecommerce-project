@@ -26,4 +26,4 @@
 
 
 ### property file env ###
-/resources/application.propertiess
+/src/main/resources/application.properties
