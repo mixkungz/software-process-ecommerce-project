@@ -12,7 +12,7 @@ public class Shipping {
     int id;
 
     @NotBlank
-    @Column(name = "shiptype")
+    @Column(name = "ship_type")
     String shipType;
 
     public Shipping() {
