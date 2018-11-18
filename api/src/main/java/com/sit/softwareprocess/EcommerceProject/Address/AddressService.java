@@ -9,12 +9,10 @@ public class AddressService {
     @Autowired
     AddressRepository addressRepository;
 
-    private Address address;
+    
 
-    public void createAddress(String addressDes,String district,String subDistrict,String province,String postCode){
-
-        address = new Address(addressDes,district,subDistrict,province,postCode);
-        addressRepository.save(address);
+    public Address createAddress(Address address{
+        return addressRepository.save(address);
     }
 
 }
