@@ -45,6 +45,14 @@ public class Address implements Serializable {
     public Address() {
     }
 
+    public Address(@NotBlank String addressDescription, @NotBlank String district, @NotBlank String subDistrict, @NotBlank String province, @NotBlank String postcode) {
+        this.addressDescription = addressDescription;
+        this.district = district;
+        this.subDistrict = subDistrict;
+        this.province = province;
+        this.postcode = postcode;
+    }
+
     public int getId() { return id; }
 
     public String getAddressDescription() { return addressDescription; }
