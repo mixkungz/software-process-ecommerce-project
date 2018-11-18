@@ -17,5 +17,6 @@ public class UserService {
         User user = new User(username,password,firstName,lastName,email,telephoneNumber,isAdmin);
         userRepository.save(user);
     }
+    public User getUserByUsername(String username){return userRepository.findByUsername(username);}
 
 }
