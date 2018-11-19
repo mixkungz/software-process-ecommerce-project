@@ -68,5 +68,21 @@ public class JwtService {
         }
     }
 
+    public int getUserIdFromToken(String token){
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secretKey);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .build(); //Reusable verifier instance
+            DecodedJWT jwt = verifier.verify(token);
+
+            if(!isTokenExpire(token)) return jwt.getClaim("id").asInt();
+
+        } catch (JWTVerificationException exception){
+            //Invalid signature/claims
+            throw new JWTVerificationException(exception.getMessage());
+
+        }
+    }
+
 
 }
