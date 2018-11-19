@@ -34,15 +34,22 @@
             var productImgArr = response.data.productImage.split(',');
             var productImgString = '';
             var productImgSize = '';
-
+            console.log(productImgArr);
+            console.log(response.data.size);
+            console.log(response.data.size == "");
             for (var i = 0; i < productImgArr.length; i++) {
                 productImgString += `
-                    <img class="mySlides" src="sneakers/${productImgArr[i]}">
+                    <img class="mySlides" src="productImage/${productImgArr[i]}">
                 `
             }
             document.getElementById("product-imgs").innerHTML = productImgString;
             showDivs(1);
-
+            
+            if (response.data.size == "") {
+                document.getElementById("textSize").innerHTML = "";
+            } else {
+                document.getElementById("textSize").innerHTML = "Size :";
+            }
         })
     </script>
 
@@ -51,7 +58,7 @@
             <i class="fas fa-shopping-cart"></i>
         </div>
         <!-- -------------------- IMAGE -->
-        <div class="w3-content w3-display-container" style="max-width:800px">
+        <div class="w3-content w3-display-container">
             <div id="product-imgs">
 
             </div>
@@ -70,7 +77,7 @@
             <div class="row">
                 <div class="col" style="text-align: right;">
                     <span style="font-size: 14pt;">
-                        <strong>Size :</strong>
+                        <strong id="textSize">Size :</strong>
                     </span>
                 </div>
                 <div class="col" style="text-align: left; padding-left: 0px; font-size: 14pt;">
@@ -126,16 +133,16 @@
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        var url_string = window.location.href; 
+        var url_string = window.location.href;
         var url = new URL(url_string);
         var sku = url.searchParams.get("sku");
         console.log(sku);
-        axios.get('http://localhost:8080/products/'+sku).then(function (response) {
+        axios.get('http://localhost:8080/products/' + sku).then(function (response) {
             console.log(response);
             document.getElementById("productDescription").innerHTML = response.data.productDescription;
             document.getElementById("color").style.color = response.data.color;
             document.getElementById("productName").innerHTML = response.data.productName;
-            document.getElementById("productPrice").innerHTML = response.data.productPrice+".00฿";
+            document.getElementById("productPrice").innerHTML = response.data.productPrice + ".00฿";
             document.getElementById("size").innerHTML = response.data.size;
             document.getElementById("productImage").innerHTML = response.data.productImage;
         })
@@ -144,20 +151,20 @@
     </script>
 
     <script>
-    function addToCart(){
-        var skuArrFromLocalStorage = localStorage.getItem("skuArr")
-        if(skuArrFromLocalStorage === null) {skuArrFromLocalStorage = []}
-        else{skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')}
+        function addToCart() {
+            var skuArrFromLocalStorage = localStorage.getItem("skuArr")
+            if (skuArrFromLocalStorage === null) { skuArrFromLocalStorage = [] }
+            else { skuArrFromLocalStorage = skuArrFromLocalStorage.split(',') }
 
-        var url_string = window.location.href; 
-        var url = new URL(url_string);
-        var sku = url.searchParams.get("sku");
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var sku = url.searchParams.get("sku");
 
-        skuArrFromLocalStorage.push(sku)
-        localStorage.setItem("skuArr", skuArrFromLocalStorage.toString());
-    }
+            skuArrFromLocalStorage.push(sku)
+            localStorage.setItem("skuArr", skuArrFromLocalStorage.toString());
+        }
     </script>
-    
+
 
 </body>
 <footer>
