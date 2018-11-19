@@ -30,78 +30,43 @@
         <form>
             <div class="group">
                 <div class="ad">
-                    <textarea class="form-control" rows="3" id="address" name="text" placeholder="Address number"></textarea>
+                    <textarea class="form-control" rows="3" id="address" name="text" placeholder="Address number" required></textarea>
                 </div>
                 <!------------------------------------------------------------------------------------------>
-                <div class="row">
-                    <!-- Our Special dropdown has class show-on-hover -->
-                    <div class="col-md-6 mb-3">
-                        <div class="dropdown">
-                            <select class="form-control form-control-lg" name="category" onchange="ChangecatList()" required>
-                        </div>
-                        <option value="">Subdistrict </option>
-                        <option value="Classroom Instruction and Assessment">Classroom Instruction and Assessment</option>
-                        <option value="Curriculum Development and Alignment">Curriculum Development and Alignment</option>
-                        <option value="District Committee">District Committee</option>
-                        <option value="Meeting">Meeting</option>
-                        <option value="Other Category">Other Category</option>
-                        <option value="Professional Conference">Professional Conference</option>
-                        <option value="Professional Workshop / Training">Professional Workshop / Training</option>
-                        <option value="Pupil Services">Pupil Services</option>
-                        </select>
+                <div class="form-group">
+                    <div class="input">
+                        <input type="text" class="form-control" id="Subdistrict" placeholder="Subdistrict" name="Subdistrict" required>
+                    </div>
+                </div>
+
+                <!-----------------------------------------<-------------------------------------------------->
+                <div class="form-group">
+                    <div class="input">
+                        <input type="text" class="form-control" id="District" placeholder="District" name="District" required>
                     </div>
                 </div>
                 <!-----------------------------------------<-------------------------------------------------->
-                <div class="col-md-6 mb-3">
-                    <div class="dropdown">
-                        <select class="form-control form-control-lg" name="category" onchange="ChangecatList()" required>
+                <div class="Postcode">
+                    <div class="form-group">
+                        <input type="text" class="form-control Postcode" id="username" placeholder="Postcode">
                     </div>
-                    <option value="">District </option>
-                    <option value="Classroom Instruction and Assessment">Classroom Instruction and Assessment</option>
-                    <option value="Curriculum Development and Alignment">Curriculum Development and Alignment</option>
-                    <option value="District Committee">District Committee</option>
-                    <option value="Meeting">Meeting</option>
-                    <option value="Other Category">Other Category</option>
-                    <option value="Professional Conference">Professional Conference</option>
-                    <option value="Professional Workshop / Training">Professional Workshop / Training</option>
-                    <option value="Pupil Services">Pupil Services</option>
-                    </select>
                 </div>
-            </div>
-            <!-----------------------------------------<-------------------------------------------------->
-            <div class="Postcode">
+                <!-----------------------------------------<-------------------------------------------------->
                 <div class="form-group">
-                    <input type="text" class="form-control Postcode" id="username" placeholder="Postcode">
-                </div>
-            </div>
-            <!-----------------------------------------<-------------------------------------------------->
-
-            <div class="col-md-6 mb-3">
-                <div class="Province">
-                    <div class="dropdown">
-                        <select class="form-control form-control-lg" name="category" onchange="ChangecatList()" required>
+                    <div class="pro">
+                        <div class="input">
+                            <input type="text" class="form-control" id="Province" placeholder="Province" name="Province" required>
+                        </div>
                     </div>
-                    <option value="">Province </option>
-                    <option value="Bangkok">Bangkok</option>
-                    <option value="Curriculum Development and Alignment">Curriculum Development and Alignment</option>
-                    <option value="District Committee">District Committee</option>
-                    <option value="Meeting">Meeting</option>
-                    <option value="Other Category">Other Category</option>
-                    <option value="Professional Conference">Professional Conference</option>
-                    <option value="Professional Workshop / Training">Professional Workshop / Training</option>
-                    <option value="Pupil Services">Pupil Services</option>
-                    </select>
                 </div>
+                <!-----------------------------------------<-------------------------------------------------->
+
+                <button class="botton " type="submit" style="font-size: 18pt" padding="1px 100px">
+                    <strong>Confirm</strong>
+                </button>
+
+
             </div>
-    </div>
-    <!-----------------------------------------<-------------------------------------------------->
-
-    <button class="botton" style="font-size: 18pt" padding="1px 100px">
-        <strong>Add to cart</strong>
-    </button>
-
-
-    </div>
     </div>
 
     </form>
