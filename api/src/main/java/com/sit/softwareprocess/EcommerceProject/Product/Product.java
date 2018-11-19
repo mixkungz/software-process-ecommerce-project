@@ -35,7 +35,7 @@ public class Product implements Serializable {
     String productDescription;
 
     @NotBlank
-    @Column(name = "numberofstock")
+    @Column(name = "number_of_stock")
     int numberOfStock;
 
     @NotBlank
