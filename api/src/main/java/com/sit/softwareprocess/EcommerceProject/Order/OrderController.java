@@ -58,7 +58,7 @@ public class OrderController {
         Shipping shipping = gson.fromJson(shippingJson,Shipping.class);
         Payment payment = gson.fromJson(paymentJson,Payment.class);
         User user = gson.fromJson(userJson,User.class);
-        int[] productList = gson.fromJson(productJson,int[].class);
+        String[] productList = gson.fromJson(productJson,String[].class);
         int[] amount = gson.fromJson(amountJson,int[].class);
 
         int totalAmount = 0;
