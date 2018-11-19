@@ -84,7 +84,9 @@
                 var productPriceArr = [];
                 for (var i = 0; i < response.data.length; i++) {
                     productNameArr.push(response.data[i].productName);
-                    productImgArr.push(response.data[i].productImage);
+                    var productImgPerProduct = response.data[i].productImage;
+                    var productImgPerPiece = productImgPerProduct.split(',');
+                    productImgArr.push(productImgPerPiece[0]);
                     productPriceArr.push(response.data[i].productPrice);
                 }
                 let resultOfProduct = '';
@@ -93,7 +95,7 @@
                             <div class="col-6 productCard">
                                 <a href="http://localhost:8888/productDetail.html?sku=${response.data[i].sku}">   
                                     <div class="card " style="width: 100%;">
-                                        <img class="card-img-top" src="products/${productImgArr[i]}">
+                                        <img class="card-img-top" src="productImage/${productImgArr[i]}">
                                         <div class="card-body productDetail">
                                             <p class="card-text productName">${productNameArr[i]}</p>
                                             <p class="card-text productPrice" style="text-align:right;">${productPriceArr[i] + ".00฿"}</p>
