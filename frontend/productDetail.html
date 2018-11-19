@@ -106,6 +106,7 @@
         var sku = url.searchParams.get("sku");
         console.log(sku);
         axios.get('http://localhost:8080/products/'+sku).then(function (response) {
+            console.log(response);
             document.getElementById("productDescription").innerHTML = response.data.productDescription;
             document.getElementById("color").style.color = response.data.color;
             document.getElementById("productName").innerHTML = response.data.productName;
@@ -113,12 +114,30 @@
             document.getElementById("size").innerHTML = response.data.size;
             document.getElementById("productImage").innerHTML = response.data.productImage;
         })
+
+
     </script>
+
+    <script>
+    function addToCart(){
+        var skuArrFromLocalStorage = localStorage.getItem("skuArr")
+        if(skuArrFromLocalStorage === null) {skuArrFromLocalStorage = []}
+        else{skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')}
+
+        var url_string = window.location.href; 
+        var url = new URL(url_string);
+        var sku = url.searchParams.get("sku");
+
+        skuArrFromLocalStorage.push(sku)
+        localStorage.setItem("skuArr", skuArrFromLocalStorage.toString());
+    }
+    </script>
+    
 
 </body>
 <footer>
     <div class="container" style="margin-bottom:7%">
-        <button class="button" style="font-size: 18pt"><strong>Add to cart</strong></button>
+        <button class="button" style="font-size: 18pt" onclick="addToCart()"><strong>Add to cart</strong></button>
         <br>
     </div>
 </footer>
