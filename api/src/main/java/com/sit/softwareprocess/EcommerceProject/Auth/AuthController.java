@@ -14,6 +14,7 @@ public class AuthController {
     @Autowired
     UserService userService;
 
+    @CrossOrigin("*")
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/auth/login"
@@ -24,7 +25,7 @@ public class AuthController {
         JwtModel jwtModel = jwtService.generateJwtToken(user.getId());
         return new ResponseEntity<JwtModel>(jwtModel,HttpStatus.CREATED);
     }
-
+    @CrossOrigin("*")
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/auth/check"
