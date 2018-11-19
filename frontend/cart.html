@@ -15,7 +15,17 @@
 
 <body>
     <div class="topic">
-        <div clas>Your Cart</div>
+        <div class="col-1" backBt>
+            <img class="buttonBack" src="button/back.png">
+        </div>
+        <div class="col" style="margin-top: -12%;">
+            <p>Your Cart</p>
+        </div>
+        <div class="col" bin style="margin-top: -18%; text-align: right;">
+            <img class="buttonBin" src="button/delete-button.png" style="margin-right: 3%; height: 27px;">
+        </div>
+
+
     </div>
     <!-- Select All -->
     <div class="form-group form-check">
@@ -24,11 +34,6 @@
     </div>
     <!-- สินค้าที่หยิบใส่ตะกร้า -->
     <div class="productInCart">
-        <div class="product">
-            <p class="card-title">
-                <img class="shopLogo" src="shopLogo/mustard.jpg">
-                <span class="shopName">Mustard Sneakers</span></p>
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col-2 selectItem">
@@ -66,12 +71,15 @@
             </div>
         </div>
     </div>
-    <div class="productInCart">
-        <div class="product">
-            <p class="card-title">
-                <img class="shopLogo" src="shopLogo/veronica.jpg">
-                <span class="shopName">Mustard Sneakers</span></p>
-        </div>
+
+    <script>
+        function generateProductCategoryCard() {
+            var categoryNameArr = ["Women Clothes", "Men Clothes", "Cosmetics", "Smartphones", "Food & Drink", "Books"];
+            var categoryImgArr = ["dress.png", "tshirt.png", "make-up.png", "smartphone.png", "diet.png", "library.png"];
+            let resultOfCategory = '';
+            for (var i = 0; i < 6; i++) {
+                resultOfCategory += `
+                    
         <div class="container">
             <div class="row">
                 <div class="col-2 selectItem">
@@ -81,7 +89,7 @@
                     </div>
                 </div>
                 <div class="col-4 tagImg">
-                    <img class="card-img-top productImg" src="products/skirt.png">
+                    <img class="card-img-top productImg" src="products/sneakerOrange.jpg">
                 </div>
                 <div class="col">
                     <div class="productName">
@@ -89,50 +97,7 @@
                     </div>
 
                     <div class="productAttr">
-                        <p class="productDetail">Yellow Plaid, 26</p>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="btn-group btn-group-sm" role="group">
-                                <button onclick="delProduct()" type="button" class="btn btn-secondary del" id="del">-</button>
-                                <p class="number" id="number">1</p>
-                                <button onclick="addProduct()" type="button" class="btn btn-secondary add" id="add">+</button>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="productPrice">
-                                <p class="price">350.00฿</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="productInCart">
-        <div class="product">
-            <p class="card-title">
-                <img class="shopLogo" src="shopLogo/sony.jpg">
-                <span class="shopName">Sony Thailand</span></p>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-2 selectItem">
-                    <div class="form-group form-select">
-                        <input type="checkbox" class="form-select" id="select1">
-                        <label class="form-check-label" for="select1"></label>
-                    </div>
-                </div>
-                <div class="col-4 tagImg">
-                    <img class="card-img-top productImg" src="products/sony.png">
-                </div>
-                <div class="col">
-                    <div class="productName">
-                        <p class="productDetail">Sony A7iii</p>
-                    </div>
-
-                    <div class="productAttr">
-                        <p class="productDetail">black</p>
+                        <p class="productDetail">Orange, 38</p>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -149,9 +114,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            </div
+
+            
+                            `
+            }
+            document.getElementById("categoryList").innerHTML = resultOfCategory
+        }
+    </script>
+
     <script>
         function addProduct() {
             var num = document.getElementById("number").innerHTML;
