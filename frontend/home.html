@@ -78,16 +78,17 @@
         function generateProductCard() {
             axios.get('http://localhost:8080/products').then(function (response) {
                 console.log(response.data)
+                console.log(response.data.length)
                 var productNameArr = [];
                 var productImgArr = [];
                 var productPriceArr = [];
-                for (var i = 0; i < 6; i++) {
+                for (var i = 0; i < response.data.length; i++) {
                     productNameArr.push(response.data[i].productName);
                     productImgArr.push(response.data[i].productImage);
                     productPriceArr.push(response.data[i].productPrice);
                 }
                 let resultOfProduct = '';
-                for (var i = 0; i < 6; i++) {
+                for (var i = 0; i < response.data.length; i++) {
                     resultOfProduct += `
                             <div class="col-6 productCard">
                                 <a href="http://localhost:8888/productDetail.html?sku=${response.data[i].sku}">   
@@ -111,11 +112,11 @@
         }
     </script>
     <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <div class="container">
+    <!-- <div class="container">
         <div class="more">
             <div>--- More Product ---</div>
         </div>
-    </div>
+    </div> -->
     <div class="container contact">
         <div class="row">
             <div class="col-6">
