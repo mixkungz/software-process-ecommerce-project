@@ -48,5 +48,25 @@ public class JwtService {
         }
     }
 
+    public boolean isTokenExpire(String token){
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secretKey);
+            JWTVerifier verifier = JWT.require(algorithm)
+                    .build(); //Reusable verifier instance
+            DecodedJWT jwt = verifier.verify(token);
+
+            Date expireDate = jwt.getExpiresAt();
+            Date now = new Date();
+
+            if(now.compareTo(expireDate) < 0) return false;
+            return true;
+
+        } catch (JWTVerificationException exception){
+            //Invalid signature/claims
+            throw new JWTVerificationException(exception.getMessage());
+
+        }
+    }
+
 
 }
