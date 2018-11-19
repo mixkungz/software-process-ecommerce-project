@@ -90,11 +90,11 @@ public class Product implements Serializable {
         this.productPrice = productPrice;
     }
 
-    public int getSku() {
+    public String getSku() {
         return sku;
     }
 
-    public void setSku(int sku) {
+    public void setSku(String sku) {
         this.sku = sku;
     }
 
@@ -146,11 +146,11 @@ public class Product implements Serializable {
         this.length = length;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
