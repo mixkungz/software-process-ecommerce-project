@@ -16,7 +16,7 @@ public class ProductService {
         return  products;
     }
 
-    public Product getProductBySku(int sku){
+    public Product getProductBySku(String sku){
         Product product = productRepository.findBySku(sku);
         return product;
     }
