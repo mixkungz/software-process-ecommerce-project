@@ -17,24 +17,51 @@
 </header>
 
 <body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var sku = url.searchParams.get("sku");
+        console.log(sku);
+        axios.get('http://localhost:8080/products/' + sku).then(function (response) {
+            document.getElementById("productDescription").innerHTML = response.data.productDescription;
+            document.getElementById("color").style.color = response.data.color;
+            document.getElementById("productName").innerHTML = response.data.productName;
+            document.getElementById("productPrice").innerHTML = response.data.productPrice + ".00฿";
+            document.getElementById("size").innerHTML = response.data.size;
+
+
+            var productImgArr = response.data.productImage.split(',');
+            var productImgString = '';
+            var productImgSize = '';
+
+            for (var i = 0; i < productImgArr.length; i++) {
+                productImgString += `
+                    <img class="mySlides" src="sneakers/${productImgArr[i]}">
+                `
+            }
+            document.getElementById("product-imgs").innerHTML = productImgString;
+            showDivs(1);
+
+        })
+    </script>
+
     <div class="container" style="margin-bottom: 10px;">
         <div class="cartCount">
             <i class="fas fa-shopping-cart"></i>
         </div>
+        <!-- -------------------- IMAGE -->
         <div class="w3-content w3-display-container" style="max-width:800px">
-            <img class="mySlides" src="sneakers/sneakerOrange.jpg">
-            <img class="mySlides" src="sneakers/sneakerGreen.jpg">
-            <img class="mySlides" src="sneakers/sneakerBlue.jpg">
-            <img class="mySlides" src="sneakers/sneakerYellow.png">
+            <div id="product-imgs">
+
+            </div>
             <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
                 <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
                 <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-                <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+
             </div>
         </div>
+        <!-- -------------------- -->
         <div style="text-align:center; font-family: THSarabanNew">
             <span style="font-size: 18pt;"><strong id="productName">Alexis in Mustard</strong></span>
             <br>
@@ -72,8 +99,6 @@
 
     <script>
         var slideIndex = 1;
-        showDivs(slideIndex);
-
         function plusDivs(n) {
             showDivs(slideIndex += n);
         }
