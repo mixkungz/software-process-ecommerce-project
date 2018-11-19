@@ -23,12 +23,13 @@ public class JwtService {
         try{
             int millisecToSec = 1000;
             int hour = 60*60*millisecToSec;
-            Date expDate = new Date(System.currentTimeMillis()+hour);
+            long expTime = new Date().getTime()+hour;
+            Date expDate = new Date(expTime);
 
             Algorithm algorithm = Algorithm.HMAC256(secretKey);
             String token = JWT.create()
                     .withClaim("id",userId)
-                    .withClaim("exp",expDate.getTime())
+                    .withClaim("exp",expTime)
                     .withExpiresAt(expDate)
                     .sign(algorithm);
 
@@ -37,11 +38,13 @@ public class JwtService {
             jwtModel.setExp(expDate.getTime());
 
             return jwtModel;
+
         }catch(JWTCreationException exception){
             return null;
         }
     }
 
+    
 
 
 }
