@@ -66,12 +66,19 @@
             method: 'post',
             url: 'http://localhost:8080/auth/login',
             params: {
-                username: 'Dear',
-                password: '123'
+                username: x,
+                password: y
             }
-        }).then((res)=>{
-            console.log(rest)
+        }).then((res) => {
+            console.log(res)
         })
+            .catch(function (error) {
+                console.log(error.response.status);
+                if (error.response.status == 400 ) {
+                    alert('unauthorized')
+                }
+
+            });
     }
 
 </script>
