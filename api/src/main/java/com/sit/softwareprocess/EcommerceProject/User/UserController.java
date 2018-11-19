@@ -30,18 +30,17 @@ public class UserController {
     )
 
 
-    public ResponseEntity<User> createUser(@RequestParam("username") String userName,
+    public ResponseEntity<User> createUser(@RequestParam("username") String username,
                                         @RequestParam("password") String password,
-                                        @RequestParam("firstname") String firstName,
-                                        @RequestParam("lastname") String lastName,
+                                        @RequestParam("firstname") String firstname,
+                                        @RequestParam("lastname") String lastname,
                                         @RequestParam("email") String email,
                                         @RequestParam("telephonenumber") String telephoneNumber){
 
             boolean isAdmin = true; //if user is true and admin is false
-            userService.createUser(userName,password,firstName,lastName,email,telephoneNumber,isAdmin);
-            System.out.println("Password : "+password);
-            return new ResponseEntity<User>(user,HttpStatus.OK);
-
+            User user = new User(username,password,firstname,lastname,email,telephoneNumber,isAdmin);
+            User userCreate = userService.createUser(user);
+            return new ResponseEntity<User>(userCreate,HttpStatus.OK);
     }
 
 }
