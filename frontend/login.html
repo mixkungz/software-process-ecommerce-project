@@ -16,6 +16,27 @@
 </head>
 
 <body>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '2112700379043896',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v3.2'
+          });
+
+          FB.AppEvents.logPageView();
+
+        };
+
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
     <div class="container">
         <br>
 
@@ -41,7 +62,7 @@
             <br>
             <p class="or">or</p>
 
-            <button type="submit" class="btn btn-primary btnfacebook">
+            <button type="submit" class="btn btn-primary btnfacebook" onclick="loginWithFacebook()">
                 <div class="fab">
                     <i class="fab fa-facebook-f"> </i>
                 </div>
@@ -57,7 +78,11 @@
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-   
+  loginWithFacebook = () =>{
+    FB.login(res=>{
+      console.log(res)
+    })
+  }
 </script>
 
 </html>
