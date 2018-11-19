@@ -28,7 +28,7 @@ public class ProductController {
             method = RequestMethod.GET,
             value = "/products/{sku}"
     )
-    public ResponseEntity <Product> getProductBySku(@PathVariable("sku") int sku){
+    public ResponseEntity <Product> getProductBySku(@PathVariable("sku") String sku){
             Product product = productService.getProductBySku(sku);
             return new ResponseEntity<Product>(product,HttpStatus.OK);
     }

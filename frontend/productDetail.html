@@ -20,7 +20,6 @@
     <div class="container" style="margin-bottom: 10px;">
         <div class="cartCount">
             <i class="fas fa-shopping-cart"></i>
-            <i class="fas fa-circle"><span></span></i>
         </div>
         <div class="w3-content w3-display-container" style="max-width:800px">
             <img class="mySlides" src="sneakers/sneakerOrange.jpg">
@@ -37,28 +36,38 @@
             </div>
         </div>
         <div style="text-align:center; font-family: THSarabanNew">
-            <i class="fab fa-gg-circle" style="vertical-align:middle"></i>
-            <span style="font-size: 14pt"><strong>Mustard Sneakers</strong></span>
-            <hr style="width:70%; margin-left:15%; margin-right:15%;" />
-            <span style="font-size: 18pt;"><strong>Alexis in Mustard</strong></span>
+            <span style="font-size: 18pt;"><strong id="productName">Alexis in Mustard</strong></span>
             <br>
-            <span style="font-size: 14pt;"><strong>1,790.00฿</strong></span>
+            <span style="font-size: 14pt;"><strong id="productPrice">1,790.00฿</strong></span>
             <hr style="width:24%; margin-left:38%; margin-right:38%; background-color: black" />
-            <p style="font-size: 14pt; word-spacing: 0.5cm"><strong><u>36</u> 37 38 39 40</strong></p>
-            <p style="word-spacing: 0.35cm">
-                <i class="fas fa-square underlineImage" style="color:#C56157"></i>
-                <i class="fas fa-square" style="color:#7A7152"></i>
-                <i class="fas fa-square" style="color:#2C2F40"></i>
-                <i class="fas fa-square" style="color:#D5BA77"></i>
-            </p>
-            <p style="font-size: 12pt;font-weight: bold">
-                Slip-on rope to wear comfortable. Who stressed the <br>
-                mobility. Do not want to waste time tying a rope <br>
-                this is the answer! Simple design and classic design <br>
-                make it easy to pick up at any occasion. It’s also <br>
-                a secret that is different than any other.
-            </p>
+            <div class="row">
+                <div class="col" style="text-align: right;">
+                    <span style="font-size: 14pt;">
+                        <strong>Size :</strong>
+                    </span>
+                </div>
+                <div class="col" style="text-align: left; padding-left: 0px; font-size: 14pt;">
+                    <strong id="size">36</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="text-align: right;padding-top: 4px;">
+                    <span style="font-size: 14pt;">
+                        <strong>Color :</strong>
+                    </span>
+                </div>
+                <div class="col" style="text-align: left; padding-left: 0px;">
+                    <i id="color" class="fas fa-square"></i>
+                </div>
+            </div>
+            <div class="row" style="    padding-left: 20px;
+            padding-right: 20px;">
+                <div class="col" style="font-size: 12pt;font-weight: bold;">
+                    <span id="productDescription"></span>
+                </div>
+            </div>
         </div>
+    </div>
     </div>
 
     <script>
@@ -90,10 +99,28 @@
         }
     </script>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var url_string = window.location.href; 
+        var url = new URL(url_string);
+        var sku = url.searchParams.get("sku");
+        console.log(sku);
+        axios.get('http://localhost:8080/products/'+sku).then(function (response) {
+            document.getElementById("productDescription").innerHTML = response.data.productDescription;
+            document.getElementById("color").style.color = response.data.color;
+            document.getElementById("productName").innerHTML = response.data.productName;
+            document.getElementById("productPrice").innerHTML = response.data.productPrice+".00฿";
+            document.getElementById("size").innerHTML = response.data.size;
+            document.getElementById("productImage").innerHTML = response.data.productImage;
+        })
+    </script>
+
+    
+
 </body>
 <footer>
     <div class="container" style="margin-bottom:7%">
-        <button class="button" style="font-size: 18pt"><strong>Confirm</strong></button>
+        <button class="button" style="font-size: 18pt"><strong>Add to cart</strong></button>
         <br>
     </div>
 </footer>

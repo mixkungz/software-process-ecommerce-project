@@ -21,6 +21,7 @@
 body {
     font-family: THSarabunNew;
     background-color: #F8F4F4;
+    width: 100%;
 }
 
 .form-check{
@@ -173,6 +174,8 @@ body {
     height: 161px;
     margin-bottom: 20px;
     box-shadow: 0px 3px RGBA(0,0,0,0.05);
+    width: 104%;
+    height: 125px;
 }
 
 /* ปุ่ม order */
@@ -211,3 +214,4 @@ body {
         text-align: right;
         margin-right: 4%;
 }
+

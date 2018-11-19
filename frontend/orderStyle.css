@@ -10,7 +10,7 @@
     font-weight: bolder;
     color: white;
     padding-top: 0.5%;
-     float: left;
+    float: left;
    
 }
 
@@ -27,6 +27,7 @@
 body {
     font-family: THSarabunNew;
     background-color: #F8F4F4;
+    width: 100%;
 }
 
 .form-check{

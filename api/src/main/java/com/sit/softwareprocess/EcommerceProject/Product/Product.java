@@ -114,12 +114,12 @@ public class Product implements Serializable {
         this.productDescription = productDescription;
     }
 
-    public int getNumberOfStock() {
-        return numberOfStock;
+    public double getWidth() {
+        return width;
     }
 
-    public void setNumberOfStock(int numberOfStock) {
-        this.numberOfStock = numberOfStock;
+    public void setWidth(double width) {
+        this.width = width;
     }
 
     public double getWeight() {
@@ -160,5 +160,13 @@ public class Product implements Serializable {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public int getNumberOfStock() {
+        return numberOfStock;
+    }
+
+    public void setNumberOfStock(int numberOfStock) {
+        this.numberOfStock = numberOfStock;
     }
 }
