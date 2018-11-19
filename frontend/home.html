@@ -77,22 +77,15 @@
     <script>
         function generateProductCard() {
             axios.get('http://localhost:8080/products').then(function (response) {
+                console.log(response.data)
                 var productNameArr = [];
                 var productImgArr = [];
                 var productPriceArr = [];
-                var count;
                 for (var i = 0; i < 6; i++) {
                     productNameArr.push(response.data[i].productName);
                     productImgArr.push(response.data[i].productImage);
                     productPriceArr.push(response.data[i].productPrice);
-                    // console.log(productNameArr[i])
-                    // console.log(productImgArr[i])
                 }
-                var shopLogoArr = ["mustard.jpg", "veronica.jpg", "iStudio.png", "toysrus.png", "JBL.jpg", "sony.jpg"];
-                var shopNameArr = ["Mustard Sneakers", "Veronica Beard", "iStudio", "Toys R Us", "JBL", "Sony"];
-                // var productImgArr = ["sneakerOrange.jpg", "skirt.png", "iphonex.png", "hh.jpg", "JBL Headphone.jpg", "sony.png"];
-                // var productNameArr = ["Alexis in Mustard", "Monroe Skirt", "iPhone X 64 GB", "Cooking Food Toy", "JBL E30 Blue", "Sony A7iii"];
-                // var productPriceArr = ["1790.00฿", "395.00฿", "32,500.00฿", "3,220.00฿", "3,590.00฿", "75,900.00฿"];
                 let resultOfProduct = '';
                 for (var i = 0; i < 6; i++) {
                     resultOfProduct += `
@@ -101,8 +94,6 @@
                                     <div class="card " style="width: 100%;">
                                         <img class="card-img-top" src="products/${productImgArr[i]}">
                                         <div class="card-body productDetail">
-                                            <p class="card-title"><img class="shopLogo" src="shopLogo/${shopLogoArr[i]}"><span class="shopName">${shopNameArr[i]}</span></p>
-                                            <hr class="line">
                                             <p class="card-text productName">${productNameArr[i]}</p>
                                             <p class="card-text productPrice" style="text-align:right;">${productPriceArr[i] + ".00฿"}</p>
                                         </div>
