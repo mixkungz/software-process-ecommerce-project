@@ -9,6 +9,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @Service
@@ -21,10 +22,13 @@ public class JwtService {
 
     public JwtModel generateJwtToken(int userId){
         try{
-            int millisecToSec = 1000;
-            int hour = 60*60*millisecToSec;
-            long expTime = new Date().getTime()+hour;
-            Date expDate = new Date(expTime);
+
+            Calendar cal = Calendar.getInstance(); // creates calendar
+            cal.setTime(new Date());
+            cal.add(Calendar.HOUR_OF_DAY, 1);
+
+            Date expDate = cal.getTime();
+            long expTime = cal.getTimeInMillis();
 
             Algorithm algorithm = Algorithm.HMAC256(secretKey);
             String token = JWT.create()
@@ -43,8 +47,6 @@ public class JwtService {
             return null;
         }
     }
-
-    
 
 
 }
