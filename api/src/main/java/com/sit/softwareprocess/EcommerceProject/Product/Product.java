@@ -24,7 +24,7 @@ public class Product implements Serializable {
 
     @NotBlank
     @Column(name = "sku")
-    int sku;
+    String sku;
 
     @NotBlank
     @Column(name = "product_image")
@@ -56,7 +56,7 @@ public class Product implements Serializable {
 
     @NotBlank
     @Column(name = "size")
-    int size;
+    String size;
 
     @NotBlank
     @Column(name = "color")
