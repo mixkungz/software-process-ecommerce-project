@@ -5,10 +5,7 @@ import com.sit.softwareprocess.EcommerceProject.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AuthController {
@@ -26,6 +23,14 @@ public class AuthController {
         if(!hasUser(user) || isWrongPassword(user,password)) return new ResponseEntity(HttpStatus.BAD_REQUEST);
         JwtModel jwtModel = jwtService.generateJwtToken(user.getId());
         return new ResponseEntity<JwtModel>(jwtModel,HttpStatus.CREATED);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.POST,
+            value = "/auth/check"
+    )
+    public boolean checkToken(@RequestHeader(name = "Authorization", required = true) String token){
+        return jwtService.isTokenExpire(token);
     }
 
     public boolean hasUser(User user){
