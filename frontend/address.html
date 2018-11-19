@@ -23,14 +23,14 @@
     <div class="container">
         <div class="addr">
             <p class="addrTecxt">Address</p>
-            <hr style="width:100%; margin-left:1%; margin-right:8%; margin-bottom: 3% margin-top:0%; 
+            <hr style="width:100%; margin-left:1%; margin-right:8%; margin-bottom: 3% ; 
                        background-color:#707070">
         </div>
 
         <form>
             <div class="group">
                 <div class="ad">
-                    <textarea class="form-control" rows="3" id="address" name="text" placeholder="Address number" required></textarea>
+                    <textarea class="form-control" rows="3" id="Address" name="text" placeholder="Address number" required></textarea>
                 </div>
                 <!------------------------------------------------------------------------------------------>
                 <div class="form-group">
@@ -48,7 +48,7 @@
                 <!-----------------------------------------<-------------------------------------------------->
                 <div class="Postcode">
                     <div class="form-group">
-                        <input type="text" class="form-control Postcode" id="username" placeholder="Postcode">
+                        <input type="text" class="form-control Postcode" id="Postcode" placeholder="Postcode" required>
                     </div>
                 </div>
                 <!-----------------------------------------<-------------------------------------------------->
@@ -61,16 +61,35 @@
                 </div>
                 <!-----------------------------------------<-------------------------------------------------->
 
-                <button class="botton " type="submit" style="font-size: 18pt" padding="1px 100px">
+                <button class="botton" id="Confirm" type="submit" style="font-size: 18pt; padding:1px 100px;" onclick="getAddressData()">
                     <strong>Confirm</strong>
                 </button>
-
-
             </div>
-    </div>
+        </form>
 
-    </form>
     </div>
+    <script>
+        function getAddressData() {
+            var addr = document.getElementById("Address").value;
+            var sub = document.getElementById("Subdistrict").value;
+            var dis = document.getElementById("District").value;
+            var pos = document.getElementById("Postcode").value;
+            var pro = document.getElementById("Province").value;
+
+            var Address = {
+                addressDescription: addr,
+                Subdistrict: sub,
+                District: dis,
+                Postcode: pos,
+                Province: pro
+            };
+
+            var dehydratedAddress = JSON.stringify(Address);
+            window.localStorage.setItem('Address', dehydratedAddress);
+            var dehydratedAddress = JSON.parse(window.localStorage.getItem('Address'));
+        }
+
+    </script>
 
 </body>
 
