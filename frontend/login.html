@@ -46,21 +46,21 @@
 
 
 
-        <form action="http://localhost:8080/createUser" method="POST">
-            <div class="form-group">
-                <i class="far fa-user"></i>
-                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
-            </div>
-            <div class="form-group">
-                <i class="fas fa-unlock-alt"></i>
-                <input type="password" class="form-control pw" id="password1" placeholder="Password" name="password" required>
-                <p class="forgot">Forgot password?</p>
-            </div>
+        <!-- <form action="http://localhost:8080/createUser" method="POST"> -->
+        <div class="form-group">
+            <i class="far fa-user"></i>
+            <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
+        </div>
+        <div class="form-group">
+            <i class="fas fa-unlock-alt"></i>
+            <input type="password" class="form-control pw" id="password1" placeholder="Password" name="password" required>
+            <p class="forgot">Forgot password?</p>
+        </div>
 
 
-            <button type="submit" class="btn btn-primary btnlogin">Login</button>
-            <br>
-            <p class="or">or</p>
+        <button type="submit" class="btn btn-primary btnlogin" onclick="myFunction()">Login</button>
+        <br>
+        <p class="or">or</p>
 
             <button type="submit" class="btn btn-primary btnfacebook" onclick="loginWithFacebook()">
                 <div class="fab">
@@ -69,10 +69,10 @@
                 <a href="https://www.facebook.com/"></a> Login with Facebook
             </button>
 
-            <p class="regist">Not a member yet? |
-                <a class="fb" href="https://www.w3schools.com/"> Sign up</a>
-            </p>
-        </form>
+        <p class="regist">Not a member yet? |
+            <a class="fb" href="https://www.w3schools.com/"> Sign up</a>
+        </p>
+        <!-- </form> -->
     </div>
     </div>
 </body>
@@ -83,6 +83,30 @@
       console.log(res)
     })
   }
+    function myFunction() {
+        var x = document.getElementById("username").value;
+        var y = document.getElementById("password1").value;
+        console.log(x, y);
+        // Send a POST request
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/auth/login',
+            params: {
+                username: x,
+                password: y
+            }
+        }).then((res) => {
+            console.log(res)
+        })
+            .catch(function (error) {
+                console.log(error.response.status);
+                if (error.response.status == 400 ) {
+                    alert('unauthorized')
+                }
+
+            });
+    }
+
 </script>
 
 </html>

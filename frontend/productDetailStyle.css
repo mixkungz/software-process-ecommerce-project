@@ -22,12 +22,6 @@
     font-size: 25pt
 }
 
-.underlineImage{
-    border-bottom:1px solid black;
-    text-decoration: none;
-    color:#000001 ;
-}
-
 .fa-shopping-cart{
     color: #d14b4b;
     font-size: 22pt;
@@ -81,6 +75,4 @@ footer{
     width: 13px;
     padding: 0
 }
-
-
 
