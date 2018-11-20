@@ -1,0 +1,6 @@
+applications:
+- name: software-process-api
+  random-route: true
+  memory: 1024MB
+  instaces: 1
+  path: target/EcommerceProject-0.0.1-SNAPSHOT.jar
