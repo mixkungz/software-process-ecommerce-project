@@ -44,7 +44,6 @@
             }
             document.getElementById("product-imgs").innerHTML = productImgString;
             showDivs(1);
-            
             if (response.data.size == "") {
                 document.getElementById("textSize").innerHTML = "";
             } else {
@@ -55,7 +54,9 @@
 
     <div class="container" style="margin-bottom: 8px;">
         <div class="cartCount">
-            <i class="fas fa-shopping-cart"></i>
+            <a href="http://localhost:8888/cart.html">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
         </div>
         <!-- -------------------- IMAGE -->
         <div class="w3-content w3-display-container">

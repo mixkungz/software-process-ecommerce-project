@@ -122,6 +122,41 @@
             document.getElementById("categoryList").innerHTML = resultOfCategory
         }
     </script>
+    <script>
+        function showProduct() {
+            var dehydratedCart = JSON.parse(window.localStorage.getItem('Cart'));
+            var sku = dehydratedCart.sku;
+            axios.get('http://localhost:8080/products/' + sku).then(function (response) {
+                // document.getElementById("productDescription").innerHTML = response.data.productDescription;
+                // document.getElementById("color").style.color = response.data.color;
+                // document.getElementById("productName").innerHTML = response.data.productName;
+                // document.getElementById("productPrice").innerHTML = response.data.productPrice + ".00฿";
+                // document.getElementById("size").innerHTML = response.data.size;
+
+
+                // var productImgArr = response.data.productImage.split(',');
+                // var productImgString = '';
+                // var productImgSize = '';
+                // console.log(productImgArr);
+                // console.log(response.data.size);
+                // console.log(response.data.size == "");
+                // for (var i = 0; i < productImgArr.length; i++) {
+                //     productImgString += `
+                //         <img class="mySlides" src="productImage/${productImgArr[i]}">
+                //     `
+                // }
+                // document.getElementById("product-imgs").innerHTML = productImgString;
+                // showDivs(1);
+
+                // if (response.data.size == "") {
+                //     document.getElementById("textSize").innerHTML = "";
+                // } else {
+                //     document.getElementById("textSize").innerHTML = "Size :";
+                // }
+            })
+        }
+    </script>
+
 
     <script>
         function addProduct() {
