@@ -19,5 +19,6 @@ public class UserService {
 
     public User getUserByFacebookId(String facebookId){return  userRepository.findByFacebookId(facebookId);}
 
+    public User getUserByUsername(String username){return  userRepository.findByUsername(username);}
 
 }
