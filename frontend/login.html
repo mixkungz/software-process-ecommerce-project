@@ -91,7 +91,13 @@
       </button>
 
       <p class="regist">
-        Not a member yet? | <a class="fb" href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/SignUp.html"> Sign up</a>
+        Not a member yet? |
+        <a
+          class="fb"
+          href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/SignUp.html"
+        >
+          Sign up</a
+        >
       </p>
       <!-- </form> -->
     </div>
@@ -105,7 +111,7 @@
             const [firstName, lastName] = name.split(' ')
             axios({
               method: 'post',
-              url: 'http://software-process-api-bright-kudu.mybluemix.net/auth/login/facebook',
+              url: 'https://software-process-api-bright-kudu.mybluemix.net/auth/login/facebook',
               params: {
                 facebookId: id,
                 firstName,
@@ -131,7 +137,7 @@
       // Send a POST request
       axios({
         method: 'post',
-        url: 'http://software-process-api-bright-kudu.mybluemix.net/auth/login',
+        url: 'https://software-process-api-bright-kudu.mybluemix.net/auth/login',
         params: {
           username: x,
           password: y
@@ -141,7 +147,9 @@
           localStorage.setItem('token', token)
           localStorage.setItem('expireIn', exp)
           alert('login สำเร็จ')
-          window.location.replace("https://mixkungz.github.io/software-process-ecommerce-project/frontend/home.html");
+          window.location.replace(
+            'https://mixkungz.github.io/software-process-ecommerce-project/frontend/home.html'
+          )
         })
         .catch(function(error) {
           console.log(error.response.status)

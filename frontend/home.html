@@ -40,11 +40,16 @@
           <div class="BigText">Fashion Clothes</div>
           <span class="SmallText">Discount more than 20%</span>
         </div>
+        <<<<<<< HEAD
       </div>
       <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/cart.html">
         <i class="fas fa-shopping-cart"></i>
       </a>
-      <i class="far fa-user"></i>
+      <i class="far fa-user"></i> =======
+      <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/cart.html">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+      <i class="far fa-user"></i> >>>>>>> dbde4088dc52dd3d9bbd241f1c3934b031aa1953
     </div>
     <div class="background">
       <img src="homepic/media1.png" class="img-fluid media" alt="Responsive image" />
@@ -83,19 +88,19 @@
         let resultOfCategory = ''
         for (var i = 0; i < 6; i++) {
           resultOfCategory += `
-                                        <div class="col-4">
-                                            <div class="card categoryCard">
-                                                <img class="card-img-top"  src='homepic/${
-                                                  categoryImgArr[i]
-                                                }'>
-                                                <div class="card-body categoryName">
-                                                    <p class="card-text cateName">${
-                                                      categoryNameArr[i]
-                                                    }</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    `
+                                              <div class="col-4">
+                                                  <div class="card categoryCard">
+                                                      <img class="card-img-top"  src='homepic/${
+                                                        categoryImgArr[i]
+                                                      }'>
+                                                      <div class="card-body categoryName">
+                                                          <p class="card-text cateName">${
+                                                            categoryNameArr[i]
+                                                          }</p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          `
         }
         document.getElementById('categoryList').innerHTML = resultOfCategory
       }
@@ -111,7 +116,7 @@
     <script>
       function generateProductCard() {
         axios
-          .get('http://software-process-api-bright-kudu.mybluemix.net/products')
+          .get('https://software-process-api-bright-kudu.mybluemix.net/products')
           .then(function(response) {
             console.log(response.data)
             console.log(response.data.length)
@@ -128,26 +133,23 @@
             let resultOfProduct = ''
             for (var i = 0; i < response.data.length; i++) {
               resultOfProduct += `
-                                        <div class="col-6 productCard">
-                                            <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/productDetail.html?sku=${
-                                              response.data[i].sku
-                                            }">
-                                                <div class="card " style="width: 100%;">
-                                                    <img class="card-img-top" src="productImage/${
-                                                      productImgArr[i]
-                                                    }">
-                                                    <div class="card-body productDetail">
-                                                        <p class="card-text productName">${
-                                                          productNameArr[i]
-                                                        }</p>
-                                                        <p class="card-text productPrice" style="text-align:right;">${productPriceArr[
-                                                          i
-                                                        ] + '.00฿'}</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        `
+                                  <div class="col-6 productCard">
+                                      <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/productDetail.html?sku=${
+                                        response.data[i].sku
+                                      }">
+                                          <div class="card " style="width: 100%;">
+                                              <img class="card-img-top" src="productImage/${
+                                                productImgArr[i]
+                                              }">
+                                              <div class="card-body productDetail">
+                                                  <p class="card-text productName">${
+                                                    productNameArr[i]
+                                                  }</p>
+                                                  <p class="card-text productPrice" style="text-align:right;">${productPriceArr[
+                                                    i
+                                                  ] + '.00฿'}</p>
+                                              </div>
+                                              `
             }
             document.getElementById('productList').innerHTML = resultOfProduct
           })
