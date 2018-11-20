@@ -24,8 +24,6 @@
         <div class="col" bin style="margin-top: -18%; text-align: right;">
             <img class="buttonBin" src="button/delete-button.png" style="margin-right: 3%; height: 27px;">
         </div>
-
-
     </div>
     <!-- Select All -->
     <div class="form-group form-check">
@@ -34,7 +32,7 @@
     </div>
     <!-- สินค้าที่หยิบใส่ตะกร้า -->
     <div class="productInCart">
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-2 selectItem">
                     <div class="form-group form-select">
@@ -69,10 +67,85 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+        function getPro(){
+            var skuArrFromLocalStorage = localStorage.getItem("skuArr")
+            skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')
+            console.log(skuArrFromLocalStorage)
+
+            var productNameArr = [];
+            var productImgArr = [];
+            var productPriceArr = [];
+            var productColorArr = [];
+            var productSizeArr = [];
+            for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
+                var sku = skuArrFromLocalStorage[i];
+
+                axios.get('http://localhost:8080/products/' + sku).then(function (response) {
+                    for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
+                        productNameArr.push(skuArrFromLocalStorage[i].productName);
+                        var productImgPerProduct = skuArrFromLocalStorage[i].productImage;
+                        var productImgPerPiece = productImgPerProduct.split(',');
+                        productImgArr.push(productImgPerPiece[0]);
+                        productPriceArr.push(skuArrFromLocalStorage[i].productPrice);
+                        productColorArr.push(skuArrFromLocalStorage[i].productPrice);
+                        productSizeArr.push(skuArrFromLocalStorage[i].productPrice);
+                    }
+                })
+            }
+            console.log(productNameArr)
+
+            let resultOfProduct = '';
+            for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
+                resultOfProduct += `
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-2 selectItem">
+                                <div class="form-group form-select">
+                                    <input type="checkbox" class="form-select" id="select1">
+                                    <label class="form-check-label" for="select1"></label>
+                                </div>
+                            </div>
+                            <div class="col-4 tagImg">
+                                <img class="card-img-top productImg" src="productImage/${productImgArr[i]}">
+                            </div>
+                            <div class="col">
+                                <div class="productName">
+                                    <p class="productDetail">${productNameArr[i]}</p>
+                                </div>
+
+                                <div class="productAttr">
+                                    <p class="productDetail">${productColorArr[i]}, ${productSizeArr[i]}</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <button onclick="delProduct()" type="button" class="btn btn-secondary del" id="del">-</button>
+                                            <p class="number" id="number">1</p>
+                                            <button onclick="addProduct()" type="button" class="btn btn-secondary add" id="add">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="productPrice">
+                                            <p class="price">${productPriceArr[i]}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            `
+            }
+            document.getElementById("productInCart").innerHTML = resultOfProduct;
+        }
+        window.onload = function () {
+            getPro()
+        }
+
+    </script>
+    <!-- <script>
         function generateProductCategoryCard() {
             var categoryNameArr = ["Women Clothes", "Men Clothes", "Cosmetics", "Smartphones", "Food & Drink", "Books"];
             var categoryImgArr = ["dress.png", "tshirt.png", "make-up.png", "smartphone.png", "diet.png", "library.png"];
@@ -114,7 +187,7 @@
                         </div>
                     </div>
                 </div>
-            </div
+            </div>
 
             
                             `
@@ -122,6 +195,7 @@
             document.getElementById("categoryList").innerHTML = resultOfCategory
         }
     </script>
+
     <script>
         function showProduct() {
             var dehydratedCart = JSON.parse(window.localStorage.getItem('Cart'));
@@ -156,7 +230,7 @@
             })
         }
     </script>
-
+ -->
 
     <script>
         function addProduct() {
