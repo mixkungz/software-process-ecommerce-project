@@ -26,7 +26,7 @@
                 <div class="BigText">Fashion Clothes</div><span class="SmallText">Discount more than 20%</span>
             </div>
         </div>
-        <a href="http://localhost:8888/cart.html"> 
+        <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/cart.html">
             <i class="fas fa-shopping-cart"></i>
         </a>
         <i class="far fa-user"></i>
@@ -78,7 +78,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function generateProductCard() {
-            axios.get('http://localhost:8080/products').then(function (response) {
+            axios.get('http://software-process-api-bright-kudu.mybluemix.net/products').then(function (response) {
                 console.log(response.data)
                 console.log(response.data.length)
                 var productNameArr = [];
@@ -95,7 +95,7 @@
                 for (var i = 0; i < response.data.length; i++) {
                     resultOfProduct += `
                             <div class="col-6 productCard">
-                                <a href="http://localhost:8888/productDetail.html?sku=${response.data[i].sku}">   
+                                <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/productDetail.html?sku=${response.data[i].sku}">
                                     <div class="card " style="width: 100%;">
                                         <img class="card-img-top" src="productImage/${productImgArr[i]}">
                                         <div class="card-body productDetail">

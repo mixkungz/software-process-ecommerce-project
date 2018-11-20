@@ -142,7 +142,7 @@ We take our customer's privacy seriously and we will only collect , record, hold
         var email = document.getElementById('E-mail').value
         var telephoneNumber = document.getElementById('Telephone').value
         axios
-          .post('http://localhost:8080/users', {
+          .post('http://software-process-api-bright-kudu.mybluemix.net/users', {
             username,
             password,
             firstName,
@@ -153,7 +153,7 @@ We take our customer's privacy seriously and we will only collect , record, hold
           .then(function(res) {
             if (res.status === 201) {
               alert('Signup Success!')
-              window.location.replace('http://localhost:8888/home.html')
+              window.location.replace('https://mixkungz.github.io/software-process-ecommerce-project/frontend/home.html')
             }
           })
           .catch(function(err) {
