@@ -36,7 +36,8 @@
 
                         </div>
                         <div class="form-group">
-                                <input type="text" class="form-control" id="Lastname" placeholder="Lastname" name="lastname" required>
+                                <input type="text" class="form-control" id="Lastname" placeholder="Lastname" name="lastname"
+                                        required>
 
                         </div>
                         <div class="form-group">
@@ -45,22 +46,23 @@
 
                         </div>
                         <div class="form-group">
-                                <input type="tel" class="form-control" id="Telephone" placeholder="Telephone" name="telephonenumber" required>
+                                <input type="tel" class="form-control" id="Telephone" placeholder="Telephone" name="telephonenumber"
+                                        required>
 
                         </div>
                         <div class="privacy">
                                 <p class="privacyText">Terms of Servic & privacy Policy</p>
-                                <textarea class="form-control" rows="4" id="address" name="text">We take our customer's privacy seriously and we will only collect , record, hold, store, disclose, transfer and use your personal information as outlined below. Data protection is a matter of trust and your privacy is important to us. We shall therefore only use your name and there information, which relates to you in the manner set out in this Privacy Policy.
+                                <textarea class="form-control" rows="4" name="text">We take our customer's privacy seriously and we will only collect , record, hold, store, disclose, transfer and use your personal information as outlined below. Data protection is a matter of trust and your privacy is important to us. We shall therefore only use your name and there information, which relates to you in the manner set out in this Privacy Policy.
                                 </textarea>
                         </div>
                         <div class="form-group">
                                 <div class="form-check checkbox">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck" required/>
+                                        <input class="form-check-input" type="checkbox" id="gridCheck" required />
                                         <label class="form-check-label checkbox-label" for="gridCheck"> I Agree </label>
                                 </div>
                         </div>
                         <div class="bottonSign">
-                                <button class="botton sign" type="submit" style="font-size: 18pt" onclick="signup()">
+                                <button id="post" class="botton sign" type="submit" style="font-size: 18pt" onclick="signup()">
                                         <strong>Sign Up</strong>
                                 </button>
                         </div>
@@ -100,21 +102,26 @@
                 var lname = document.getElementById("Lastname").value;
                 var email = document.getElementById("E-mail").value;
                 var teleNo = document.getElementById("Telephone").value;
-                var add = document.getElementById("address").value;
 
-                var Signup = {
-                        Username: user,
-                        Password: pw,
-                        Firstname: fname,
-                        Lastname: lname,
-                        Email: email,
-                        Telephone: teleNo,
-                        Address: add
+                var User = {
+                        username: user,
+                        password: pw,
+                        firstName: fname,
+                        lastLame: lname,
+                        email: email,
+                        telephoneNumber: teleNo,
+                        isAdmin: 0
                 };
-
-                var dehydratedSignup = JSON.stringify(Signup);
-                window.localStorage.setItem('Signup', dehydratedSignup);
-                var dehydratedSignup = JSON.parse(window.localStorage.getItem('Signup'));
+                // console.log(User);
+                axios.post('http://localhost:8080/users', JSON.stringify(User))
+                        .then(function (res){
+                                console.log(res.message)
+                                alert('Signup Success!')
+                                window.location.replace("http://localhost:8888/home.html");
+                        })
+                        .catch(function (err){
+                                console.log(err.message)
+                        });
         }
 </script>
 
