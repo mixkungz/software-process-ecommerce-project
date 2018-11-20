@@ -130,7 +130,16 @@
         Authorization
       }
     },
-    )
+  )
+  .then(function(res) {
+    if (res.status === 201) {
+      alert('Order Success!')
+      window.location.replace('http://localhost:8888/home.html')
+    }
+  })
+  .catch(function(err) {
+    console.log(err.message)
+  })
 }
 </script>
 
