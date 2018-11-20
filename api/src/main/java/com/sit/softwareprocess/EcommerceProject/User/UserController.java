@@ -24,6 +24,7 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
+    @CrossOrigin("*")
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/users"
@@ -31,7 +32,7 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestBody User user){
             user.setAdmin(false);
             User user_object = userService.createUser(user);
-            return new ResponseEntity<User>(user_object,HttpStatus.OK);
+            return new ResponseEntity<User>(user_object,HttpStatus.CREATED);
 
     }
 
