@@ -25,17 +25,77 @@
 
     </div>
     <!-- Select All -->
-    <div class="form-group form-check">
+    <div class="form-group form-check"></div>
 
-    </div>
+    <script>
+            async function getPro() {
+                var skuArrFromLocalStorage = localStorage.getItem('skuArr')
+                if (skuArrFromLocalStorage !== null) {
+                    skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')
+    
+                    let productNameArr = []
+                    let productImgArr = []
+                    let productPriceArr = []
+                    let productColorArr = []
+                    let productSizeArr = []
+    
+                    for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
+                        let sku = skuArrFromLocalStorage[i]
+                        let { data } = await axios.get('https://software-process-api-bright-kudu.mybluemix.net/products/' + sku)
+                        await productNameArr.push(data.productName)
+                        let productImgPerProduct = data.productImage
+                        let productImgPerPiece = productImgPerProduct.split(',')
+                        await productImgArr.push(productImgPerPiece[0])
+                        await productPriceArr.push(data.productPrice)
+                        await productColorArr.push(data.color)
+                        await productSizeArr.push(data.size)
+                    }
+    
+                    let resultOfProduct = ''
+                    for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
+                        resultOfProduct += `
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-4 tagImg">
+                                    <img class="card-img-top productImg" src="productImage/${productImgArr[i]}">
+                                </div>
+                                <div class="col">
+                                    <div class="productName">
+                                        <p class="productDetail">${productNameArr[i]}</p>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-8">
+                                        <p>The number of pieces : 1</p>
+                                        </div>
+                                        <div class="col-1 colPrice">
+                                            <div class="productPrice">
+                                                <p class="price">${productPriceArr[i]}.00฿</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        '                                                                                                                                                                                                               `
+                    }
+                    var totalPrice = 0;
+                    for (var i = 0; i < productPriceArr.length; i++) {
+                        totalPrice += productPriceArr[i]
+                    }
+                    document.getElementById('productInCart').innerHTML = resultOfProduct;
+                    document.getElementById('totalPrice').innerHTML = totalPrice + ".00฿";
+                }
+            }
+            window.onload = function () {
+                getPro()
+            }
+        </script>
+
     <!-- สินค้าที่หยิบใส่ตะกร้า -->
     <div class="productInCart">
-        <!-- <div class="product">
-            <p class="card-title">
-                <img class="shopLogo" src="shopLogo/mustard.jpg">
-                <span class="shopName">Mustard Sneakers</span></p>
-        </div> -->
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
 
                 <div class="col-4 tagImg">
@@ -51,7 +111,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                           <p>The number of poeces : 1</p>
+                           <p>The number of pieces : 1</p>
                         </div>
                         <div class="col-1 colPrice">
                             <div class="productPrice">
@@ -61,7 +121,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 
@@ -82,7 +142,7 @@
         <div class="col total">
             <p>Total</p>
         </div>
-        <div class="col calPrice">
+        <div id="totalPrice"class="col calPrice">
             <p>2,185.00฿</p>
         </div>
     </div>
