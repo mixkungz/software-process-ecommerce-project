@@ -91,7 +91,7 @@
       </button>
 
       <p class="regist">
-        Not a member yet? | <a class="fb" href="https://www.w3schools.com/"> Sign up</a>
+        Not a member yet? | <a class="fb" href="http://localhost:8888/SignUp.html"> Sign up</a>
       </p>
       <!-- </form> -->
     </div>
@@ -141,6 +141,7 @@
           localStorage.setItem('token', token)
           localStorage.setItem('expireIn', exp)
           alert('login สำเร็จ')
+          window.location.replace("http://localhost:8888/home.html");
         })
         .catch(function(error) {
           console.log(error.response.status)
