@@ -40,6 +40,7 @@ public class OrderController {
     @Autowired
     JwtService jwtService;
 
+    @CrossOrigin("*")
     @RequestMapping(
             method = RequestMethod.POST,
             value = "/order"
