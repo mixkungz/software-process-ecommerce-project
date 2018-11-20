@@ -14,6 +14,9 @@ public class User implements Serializable {
     int id;
 
     @NotBlank
+    String facebookId;
+
+    @NotBlank
     String username;
 
     @NotBlank
@@ -49,6 +52,25 @@ public class User implements Serializable {
         this.email = email;
         this.telephoneNumber = telephoneNumber;
         this.isAdmin = isAdmin;
+    }
+
+    public User(@NotBlank String facebookId, @NotBlank String username, @NotBlank String password, @NotBlank String firstName, @NotBlank String lastName, @NotBlank String email, @NotBlank String telephoneNumber, @NotNull boolean isAdmin) {
+        this.facebookId = facebookId;
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.telephoneNumber = telephoneNumber;
+        this.isAdmin = isAdmin;
+    }
+
+    public String getFacebookId() {
+        return facebookId;
+    }
+
+    public void setFacebookId(String facebookId) {
+        this.facebookId = facebookId;
     }
 
     public int getId() {
