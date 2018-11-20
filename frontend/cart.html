@@ -46,7 +46,7 @@
 
                 for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
                     let sku = skuArrFromLocalStorage[i]
-                    let { data } = await axios.get('http://localhost:8080/products/' + sku)
+                    let { data } = await axios.get('http://software-process-api-bright-kudu.mybluemix.net/products/' + sku)
                     await productNameArr.push(data.productName)
                     let productImgPerProduct = data.productImage
                     let productImgPerPiece = productImgPerProduct.split(',')
@@ -141,9 +141,9 @@
             var token = localStorage.getItem('token');
             console.log(token)
             if (token != null) {
-                document.getElementById('link').href = 'http://localhost:8888/order.html';
+                document.getElementById('link').href = 'https://mixkungz.github.io/software-process-ecommerce-project/frontend/order.html';
             }else{
-                document.getElementById('link').href = 'http://localhost:8888/login.html';
+                document.getElementById('link').href = 'https://mixkungz.github.io/software-process-ecommerce-project/frontend/login.html';
             }
         }
     </script>
