@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="cartStyle.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="topic">
-      <div class="col-1" backBt><img class="buttonBack" src="button/back.png" /></div>
-      <div class="col" style="margin-top: -12%;"><p>Your Cart</p></div>
-      <div class="col" bin style="margin-top: -18%; text-align: right;">
-        <img
-          class="buttonBin"
-          src="button/delete-button.png"
-          style="margin-right: 3%; height: 27px;"
-        />
-      </div>
+        <div class="col-1" backBt><img class="buttonBack" src="button/back.png" /></div>
+        <div class="col" style="margin-top: -12%;">
+            <p>Your Cart</p>
+        </div>
+        <div class="col" bin style="margin-top: -18%; text-align: right;">
+            <img class="buttonBin" src="button/delete-button.png" style="margin-right: 3%; height: 27px;" />
+        </div>
     </div>
     <!-- Select All -->
     <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="check1" />
-      <label class="form-check-label" for="exampleCheck1">Select All</label>
+        <input type="checkbox" class="form-check-input" id="check1" />
+        <label class="form-check-label" for="exampleCheck1">Select All</label>
     </div>
     <!-- สินค้าที่หยิบใส่ตะกร้า -->
     <div id="productInCart" class="container productInCart">
-      <!--
+        <!--
         <div class="container">
             <div class="row">
                 <div class="col-2 selectItem">
@@ -80,32 +71,32 @@
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-      async function getPro() {
-        var skuArrFromLocalStorage = localStorage.getItem('skuArr')
-        if (skuArrFromLocalStorage !== null) {
-          skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')
+        async function getPro() {
+            var skuArrFromLocalStorage = localStorage.getItem('skuArr')
+            if (skuArrFromLocalStorage !== null) {
+                skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')
 
-          let productNameArr = []
-          let productImgArr = []
-          let productPriceArr = []
-          let productColorArr = []
-          let productSizeArr = []
+                let productNameArr = []
+                let productImgArr = []
+                let productPriceArr = []
+                let productColorArr = []
+                let productSizeArr = []
 
-          for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
-            let sku = skuArrFromLocalStorage[i]
-            let { data } = await axios.get('http://localhost:8080/products/' + sku)
-            await productNameArr.push(data.productName)
-            let productImgPerProduct = data.productImage
-            let productImgPerPiece = productImgPerProduct.split(',')
-            await productImgArr.push(productImgPerPiece[0])
-            await productPriceArr.push(data.productPrice)
-            await productColorArr.push(data.color)
-            await productSizeArr.push(data.size)
-          }
+                for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
+                    let sku = skuArrFromLocalStorage[i]
+                    let { data } = await axios.get('http://localhost:8080/products/' + sku)
+                    await productNameArr.push(data.productName)
+                    let productImgPerProduct = data.productImage
+                    let productImgPerPiece = productImgPerProduct.split(',')
+                    await productImgArr.push(productImgPerPiece[0])
+                    await productPriceArr.push(data.productPrice)
+                    await productColorArr.push(data.color)
+                    await productSizeArr.push(data.size)
+                }
 
-          let resultOfProduct = ''
-          for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
-            resultOfProduct += `
+                let resultOfProduct = ''
+                for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
+                    resultOfProduct += `
                     <div class="row">
                         <div class="col-2 selectItem">
                             <div class="form-group form-select">
@@ -114,9 +105,7 @@
                             </div>
                         </div>
                         <div class="col-4 tagImg">
-                            <img class="card-img-top productImg" src="productImage/${
-                              productImgArr[i]
-                            }">
+                            <img class="card-img-top productImg" src="productImage/${productImgArr[i]}">
                         </div>
                         <div class="col">
                             <div class="productName">
@@ -124,9 +113,7 @@
                             </div>
 
                             <div class="productAttr">
-                                <p class="productDetail">${productColorArr[i]}, ${
-              productSizeArr[i]
-            }</p>
+                                <p class="productDetail">${productColorArr[i]}, ${productSizeArr[i]}</p>
                             </div>
                             <div class="row">
                                 <div class="col">
@@ -143,15 +130,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-                                                                                                                                                                                                                                                    `
-          }
-          document.getElementById('productInCart').innerHTML = resultOfProduct
+                            </div>                                                                                                                                                                                                                             `
+                }
+                var totalPrice = 0;
+                for (var i = 0; i < productPriceArr.length; i++) {
+                    totalPrice += productPriceArr[i]
+                }
+                console.log(totalPrice)
+                document.getElementById('productInCart').innerHTML = resultOfProduct;
+                document.getElementById('totalPrice').innerHTML = totalPrice+".00฿";
+            }
         }
-      }
-      window.onload = function() {
-        getPro()
-      }
+        window.onload = function () {
+            getPro()
+        }
     </script>
     <!--
       <script>
@@ -242,28 +234,33 @@
     -->
 
     <script>
-      function addProduct() {
-        var num = document.getElementById('number').innerHTML
-        console.log(num)
-        document.getElementById('number').innerHTML = parseInt(num) + 1
-      }
-      function delProduct() {
-        var num = document.getElementById('number').innerHTML
-        console.log(num)
-        document.getElementById('number').innerHTML = parseInt(num) - 1
-      }
+        function addProduct() {
+            var num = document.getElementById('number').innerHTML
+            console.log(num)
+            document.getElementById('number').innerHTML = parseInt(num) + 1
+        }
+        function delProduct() {
+            var num = document.getElementById('number').innerHTML
+            console.log(num)
+            document.getElementById('number').innerHTML = parseInt(num) - 1
+        }
     </script>
     <br />
     <hr />
 
     <div class="row">
-      <div class="col total"><p>Total</p></div>
-      <div class="col calPrice"><p>2,185.00฿</p></div>
+        <div class="col total">
+            <p>Total</p>
+        </div>
+        <div id="totalPrice" class="col calPrice">
+            <p>2,185.00฿</p>
+        </div>
     </div>
 
     <div class="order">
-      <button class="buttonOrder" style="font-size: 18pt"><strong>Order</strong></button>
+        <button class="buttonOrder" style="font-size: 18pt"><strong>Order</strong></button>
     </div>
     <br />
-  </body>
+</body>
+
 </html>
