@@ -3,6 +3,7 @@ package com.sit.softwareprocess.EcommerceProject.User;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.io.Serializable;
 
 @Entity
@@ -13,7 +14,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @NotBlank
     String facebookId;
 
     @NotBlank
