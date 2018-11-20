@@ -3,6 +3,7 @@ package com.sit.softwareprocess.EcommerceProject.Order;
 import com.google.gson.*;
 import com.sit.softwareprocess.EcommerceProject.Address.Address;
 import com.sit.softwareprocess.EcommerceProject.Address.AddressService;
+import com.sit.softwareprocess.EcommerceProject.Auth.JwtService;
 import com.sit.softwareprocess.EcommerceProject.OrderDetail.OrderDetail;
 import com.sit.softwareprocess.EcommerceProject.OrderDetail.OrderDetailService;
 import com.sit.softwareprocess.EcommerceProject.Payment.Payment;
@@ -10,6 +11,7 @@ import com.sit.softwareprocess.EcommerceProject.Product.Product;
 import com.sit.softwareprocess.EcommerceProject.Product.ProductService;
 import com.sit.softwareprocess.EcommerceProject.Shipping.Shipping;
 import com.sit.softwareprocess.EcommerceProject.User.User;
+import com.sit.softwareprocess.EcommerceProject.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,13 +34,25 @@ public class OrderController {
     @Autowired
     AddressService addressService;
 
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    JwtService jwtService;
+
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/createOrder"
+            value = "/order"
     )
         public ResponseEntity<Order> createOrder(
+            @RequestHeader(name = "Authorization", required = true) String token,
             @RequestBody String jsonData
     ){
+
+        if(jwtService.isTokenExpire(token)){ return new ResponseEntity(HttpStatus.BAD_REQUEST); }
+
+        int userId = jwtService.getUserIdFromToken(token);
+        User user = userService.getUserById(userId);
 
         Gson gson = new Gson();
 
@@ -49,7 +63,6 @@ public class OrderController {
         JsonObject addressJson = jsonObject.getAsJsonObject("address");
         JsonObject shippingJson = jsonObject.getAsJsonObject("shipping");
         JsonObject paymentJson = jsonObject.getAsJsonObject("payment");
-        JsonObject userJson = jsonObject.getAsJsonObject("user");
         JsonArray productJson = jsonObject.getAsJsonArray("product");
         JsonArray amountJson = jsonObject.getAsJsonArray("amount");
 
@@ -57,7 +70,6 @@ public class OrderController {
         Address address = gson.fromJson(addressJson,Address.class);
         Shipping shipping = gson.fromJson(shippingJson,Shipping.class);
         Payment payment = gson.fromJson(paymentJson,Payment.class);
-        User user = gson.fromJson(userJson,User.class);
         String[] productList = gson.fromJson(productJson,String[].class);
         int[] amount = gson.fromJson(amountJson,int[].class);
 

@@ -1,112 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '2112700379043896',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v3.2'
-          });
-
-          FB.AppEvents.logPageView();
-
-        };
-
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "https://connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-      </script>
-    <div class="container">
-        <br>
-
-        <img src="loginLogo/OneDee-Logo.png" />
-        <br>
-        <br>
-
-
-
-        <!-- <form action="http://localhost:8080/createUser" method="POST"> -->
-        <div class="form-group">
-            <i class="far fa-user"></i>
-            <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
-        </div>
-        <div class="form-group">
-            <i class="fas fa-unlock-alt"></i>
-            <input type="password" class="form-control pw" id="password1" placeholder="Password" name="password" required>
-            <p class="forgot">Forgot password?</p>
-        </div>
-
-
-        <button type="submit" class="btn btn-primary btnlogin" onclick="myFunction()">Login</button>
-        <br>
-        <p class="or">or</p>
-
-            <button type="submit" class="btn btn-primary btnfacebook" onclick="loginWithFacebook()">
-                <div class="fab">
-                    <i class="fab fa-facebook-f"> </i>
-                </div>
-                <a href="https://www.facebook.com/"></a> Login with Facebook
-            </button>
-
-        <p class="regist">Not a member yet? |
-            <a class="fb" href="https://www.w3schools.com/"> Sign up</a>
-        </p>
-        <!-- </form> -->
-    </div>
-    </div>
-</body>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-  loginWithFacebook = () =>{
-    FB.login(res=>{
-      console.log(res)
-    })
-  }
-    function myFunction() {
-        var x = document.getElementById("username").value;
-        var y = document.getElementById("password1").value;
-        console.log(x, y);
-        // Send a POST request
-        axios({
-            method: 'post',
-            url: 'http://localhost:8080/auth/login',
-            params: {
-                username: x,
-                password: y
-            }
-        }).then((res) => {
-            console.log(res)
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '2112700379043896',
+          cookie: true,
+          xfbml: true,
+          version: 'v3.2'
         })
-            .catch(function (error) {
-                console.log(error.response.status);
-                if (error.response.status == 400 ) {
-                    alert('unauthorized')
-                }
 
-            });
+        FB.AppEvents.logPageView()
+      }
+      ;(function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0]
+        if (d.getElementById(id)) {
+          return
+        }
+        js = d.createElement(s)
+        js.id = id
+        js.src = 'https://connect.facebook.net/en_US/sdk.js'
+        fjs.parentNode.insertBefore(js, fjs)
+      })(document, 'script', 'facebook-jssdk')
+    </script>
+    <div class="container">
+      <br />
+
+      <img src="loginLogo/OneDee-Logo.png" /> <br />
+      <br />
+
+      <!-- <form action="http://localhost:8080/createUser" method="POST"> -->
+      <div class="form-group">
+        <i class="far fa-user"></i>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          placeholder="Username"
+          name="username"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-unlock-alt"></i>
+        <input
+          type="password"
+          class="form-control pw"
+          id="password1"
+          placeholder="Password"
+          name="password"
+          required
+        />
+        <p class="forgot">Forgot password?</p>
+      </div>
+
+      <button type="submit" class="btn btn-primary btnlogin" onclick="myFunction()">Login</button>
+      <br />
+      <p class="or">or</p>
+
+      <button type="submit" class="btn btn-primary btnfacebook" onclick="loginWithFacebook()">
+        <div class="fab"><i class="fab fa-facebook-f"> </i></div>
+        <a href="https://www.facebook.com/"></a> Login with Facebook
+      </button>
+
+      <p class="regist">
+        Not a member yet? | <a class="fb" href="http://localhost:8888/SignUp.html"> Sign up</a>
+      </p>
+      <!-- </form> -->
+    </div>
+  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    loginWithFacebook = () => {
+      FB.login(response => {
+        if (response.authResponse) {
+          FB.api('/me', function({ name, id }) {
+            const [firstName, lastName] = name.split(' ')
+            axios({
+              method: 'post',
+              url: 'http://localhost:8080/auth/login/facebook',
+              params: {
+                facebookId: id,
+                firstName,
+                lastName
+              }
+            })
+              .then(({ data: { exp, token } }) => {
+                localStorage.setItem('token', token)
+                localStorage.setItem('expireIn', exp)
+                alert('login สำเร็จ')
+              })
+              .catch(error => {
+                console.log(error)
+              })
+          })
+        }
+      })
     }
-
-</script>
-
+    function myFunction() {
+      var x = document.getElementById('username').value
+      var y = document.getElementById('password1').value
+      console.log(x, y)
+      // Send a POST request
+      axios({
+        method: 'post',
+        url: 'http://localhost:8080/auth/login',
+        params: {
+          username: x,
+          password: y
+        }
+      })
+        .then(({ data: { exp, token } }) => {
+          localStorage.setItem('token', token)
+          localStorage.setItem('expireIn', exp)
+          alert('login สำเร็จ')
+          window.location.replace("http://localhost:8888/home.html");
+        })
+        .catch(function(error) {
+          console.log(error.response.status)
+          if (error.response.status == 400) {
+            alert('unauthorized')
+          }
+        })
+    }
+  </script>
 </html>
