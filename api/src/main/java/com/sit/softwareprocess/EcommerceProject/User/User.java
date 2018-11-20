@@ -14,8 +14,10 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @Column(unique = true)
     String facebookId;
 
+    @Column(unique = true)
     @NotBlank
     String username;
 
