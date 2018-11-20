@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,86 +16,26 @@
 <body>
     <div class="topic">
 
-       <div class="col-1" backBt>
-           <img class="buttonBack" src="button/back.png">
-       </div>
-       <div class="col" style=" margin-top: -12%;">
-           <p>Order</p>
+        <div class="col-1" backBt>
+            <img class="buttonBack" src="button/back.png">
+        </div>
+        <div class="col" style=" margin-top: -12%;">
+            <p>Order</p>
         </div>
 
     </div>
     <!-- Select All -->
-    <div class="form-group form-check"></div>
+    <div class="form-group form-check">
 
-    <script>
-            async function getPro() {
-                var skuArrFromLocalStorage = localStorage.getItem('skuArr')
-                if (skuArrFromLocalStorage !== null) {
-                    skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')
-    
-                    let productNameArr = []
-                    let productImgArr = []
-                    let productPriceArr = []
-                    let productColorArr = []
-                    let productSizeArr = []
-    
-                    for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
-                        let sku = skuArrFromLocalStorage[i]
-                        let { data } = await axios.get('https://software-process-api-bright-kudu.mybluemix.net/products/' + sku)
-                        await productNameArr.push(data.productName)
-                        let productImgPerProduct = data.productImage
-                        let productImgPerPiece = productImgPerProduct.split(',')
-                        await productImgArr.push(productImgPerPiece[0])
-                        await productPriceArr.push(data.productPrice)
-                        await productColorArr.push(data.color)
-                        await productSizeArr.push(data.size)
-                    }
-    
-                    let resultOfProduct = ''
-                    for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
-                        resultOfProduct += `
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="col-4 tagImg">
-                                    <img class="card-img-top productImg" src="productImage/${productImgArr[i]}">
-                                </div>
-                                <div class="col">
-                                    <div class="productName">
-                                        <p class="productDetail">${productNameArr[i]}</p>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-8">
-                                        <p>The number of pieces : 1</p>
-                                        </div>
-                                        <div class="col-1 colPrice">
-                                            <div class="productPrice">
-                                                <p class="price">${productPriceArr[i]}.00฿</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        '                                                                                                                                                                                                               `
-                    }
-                    var totalPrice = 0;
-                    for (var i = 0; i < productPriceArr.length; i++) {
-                        totalPrice += productPriceArr[i]
-                    }
-                    document.getElementById('productInCart').innerHTML = resultOfProduct;
-                    document.getElementById('totalPrice').innerHTML = totalPrice + ".00฿";
-                }
-            }
-            window.onload = function () {
-                getPro()
-            }
-        </script>
-
+    </div>
     <!-- สินค้าที่หยิบใส่ตะกร้า -->
     <div class="productInCart">
-        <!-- <div class="container">
+        <!-- <div class="product">
+            <p class="card-title">
+                <img class="shopLogo" src="shopLogo/mustard.jpg">
+                <span class="shopName">Mustard Sneakers</span></p>
+        </div> -->
+        <div class="container">
             <div class="row">
 
                 <div class="col-4 tagImg">
@@ -111,7 +51,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                           <p>The number of pieces : 1</p>
+                            <p>The number of poeces : 1</p>
                         </div>
                         <div class="col-1 colPrice">
                             <div class="productPrice">
@@ -121,34 +61,36 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
 
 
 
     <!-- Shopping -->
     <div class="row">
-            <div class="col total">
-                <p>Shopping</p>
-            </div>
-            <div class="col calPrice">
-                <p>40.00฿</p>
-
-            </div>
+        <div class="col total">
+            <p>Shopping</p>
         </div>
+        <div class="col calPrice">
+            <p>40.00฿</p>
+
+        </div>
+    </div>
     <!-- Total -->
 
     <div class="row">
         <div class="col total">
             <p>Total</p>
         </div>
-        <div id="totalPrice"class="col calPrice">
+        <div class="col calPrice">
             <p>2,185.00฿</p>
         </div>
     </div>
 
     <div class="order">
-        <button class="buttonOrder" style="font-size: 18pt" onclick="order()"><strong>Confirm</strong></button>
+        <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/address.html">
+            <button class="buttonOrder" style="font-size: 18pt" onclick="order()"><strong>Confirm</strong></button>
+        </a>
     </div>
     <br>
 
@@ -157,50 +99,51 @@
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-  order = () => {
-    var Authorization = localStorage.getItem('token');
-    var product = localStorage.getItem('skuArr');
-    var amount = localStorage.getItem('amount');
-    var address = localStorage.getItem('Address');
-    var shpping = localStorage.getItem('Payment');
-    var payment = localStorage.getItem('Shipping');
-    var totalPrice = localStorage.getItem('totalPrice');
-    var totalShippingPrice = localStorage.getItem('totalShippingPrice');
+    order = () => {
+        var Authorization = localStorage.getItem('token');
+        var product = localStorage.getItem('skuArr');
+        var amount = localStorage.getItem('amount');
+        var address = localStorage.getItem('Address');
+        var shpping = localStorage.getItem('Payment');
+        var payment = localStorage.getItem('Shipping');
+        var totalPrice = localStorage.getItem('totalPrice');
+        var totalShippingPrice = localStorage.getItem('totalShippingPrice');
 
-    axios
-    .post('https://software-process-api-bright-kudu.mybluemix.net/order',
-    {
-      "order": {
-        totalPrice,
-        totalShippingPrice
-      },
-      "address":{
-        address
-      },
-      "shipping":{
-        shipping
-      },
-      "payment":{
-        payment
-      },
-      product,
-      amount
-    },
-    { headers:{
-        Authorization
-      }
-    },
-  )
-  .then(function(res) {
-    if (res.status === 201) {
-      alert('Order Success!')
-      window.location.replace('https://mixkungz.github.io/software-process-ecommerce-project/frontend/home.html')
+        axios
+            .post('http://software-process-api-bright-kudu.mybluemix.net/order',
+                {
+                    "order": {
+                        totalPrice,
+                        totalShippingPrice
+                    },
+                    "address": {
+                        address
+                    },
+                    "shipping": {
+                        shipping
+                    },
+                    "payment": {
+                        payment
+                    },
+                    product,
+                    amount
+                },
+                {
+                    headers: {
+                        Authorization
+                    }
+                },
+            )
+            .then(function (res) {
+                if (res.status === 201) {
+                    alert('Order Success!')
+                    window.location.replace('https://mixkungz.github.io/software-process-ecommerce-project/frontend/home.html')
+                }
+            })
+            .catch(function (err) {
+                console.log(err.message)
+            })
     }
-  })
-  .catch(function(err) {
-    console.log(err.message)
-  })
-}
 </script>
 
 </html>
