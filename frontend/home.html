@@ -1,143 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="homestyle.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="homestyle.css" />
+  </head>
 
-<body>
-    <!-- --------------------------------------------------------------------------------------------------------------- -->
+  <body>
+    <!--
+      ---------------------------------------------------------------------------------------------------------------
+    -->
     <div class="background banner">
-        <img src="homepic/clothes1.png" class="img-fluid clothes" alt="Responsive image" />
-        <div class="form-group searchInput">
-            <i class="fas fa-search"></i>
-            <input type="text" class="form-control" id="searchText" placeholder="Cloth, Smartphone, ...">
+      <img src="homepic/clothes1.png" class="img-fluid clothes" alt="Responsive image" />
+      <div class="form-group searchInput">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          class="form-control"
+          id="searchText"
+          placeholder="Cloth, Smartphone, ..."
+        />
+      </div>
+      <div>
+        <div class="bottom-left">
+          <div class="BigText">Fashion Clothes</div>
+          <span class="SmallText">Discount more than 20%</span>
         </div>
-        <div>
-            <div class="bottom-left">
-                <div class="BigText">Fashion Clothes</div><span class="SmallText">Discount more than 20%</span>
-            </div>
-        </div>
-        <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/cart.html">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-        <i class="far fa-user"></i>
+      </div>
+      <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/cart.html">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+      <i class="far fa-user"></i>
     </div>
     <div class="background">
-        <img src="homepic/media1.png" class="img-fluid media" alt="Responsive image" />
-        <div>
-            <div class="bottom-left">
-                <div class="BigText">Smartphone, Gadget</div><span class="SmallText">Discount more than 50%</span>
-            </div>
+      <img src="homepic/media1.png" class="img-fluid media" alt="Responsive image" />
+      <div>
+        <div class="bottom-left">
+          <div class="BigText">Smartphone, Gadget</div>
+          <span class="SmallText">Discount more than 50%</span>
         </div>
+      </div>
     </div>
-    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <!--
+      ---------------------------------------------------------------------------------------------------------------
+    -->
     <div class="container">
-        <div class="topic">
-            <div>Category</div>
-        </div>
-        <div id="categoryList" class="row categoryList">
-        </div>
+      <div class="topic"><div>Category</div></div>
+      <div id="categoryList" class="row categoryList"></div>
     </div>
     <script>
-        function generateProductCategoryCard() {
-            var categoryNameArr = ["Women Clothes", "Men Clothes", "Cosmetics", "Smartphones", "Food & Drink", "Books"];
-            var categoryImgArr = ["dress.png", "tshirt.png", "make-up.png", "smartphone.png", "diet.png", "library.png"];
-            let resultOfCategory = '';
-            for (var i = 0; i < 6; i++) {
-                resultOfCategory += `
-                            <div class="col-4">
-                                <div class="card categoryCard">
-                                    <img class="card-img-top"  src='homepic/${categoryImgArr[i]}'>
-                                    <div class="card-body categoryName">
-                                        <p class="card-text cateName">${categoryNameArr[i]}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        `
-            }
-            document.getElementById("categoryList").innerHTML = resultOfCategory
+      function generateProductCategoryCard() {
+        var categoryNameArr = [
+          'Women Clothes',
+          'Men Clothes',
+          'Cosmetics',
+          'Smartphones',
+          'Food & Drink',
+          'Books'
+        ]
+        var categoryImgArr = [
+          'dress.png',
+          'tshirt.png',
+          'make-up.png',
+          'smartphone.png',
+          'diet.png',
+          'library.png'
+        ]
+        let resultOfCategory = ''
+        for (var i = 0; i < 6; i++) {
+          resultOfCategory += `
+                                        <div class="col-4">
+                                            <div class="card categoryCard">
+                                                <img class="card-img-top"  src='homepic/${
+                                                  categoryImgArr[i]
+                                                }'>
+                                                <div class="card-body categoryName">
+                                                    <p class="card-text cateName">${
+                                                      categoryNameArr[i]
+                                                    }</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `
         }
+        document.getElementById('categoryList').innerHTML = resultOfCategory
+      }
     </script>
-    <!-- --------------------------------------------------------------------------------------------------------------- -->
+    <!--
+      ---------------------------------------------------------------------------------------------------------------
+    -->
     <div class="container">
-        <div class="topic">
-            <div>Daily product for you</div>
-        </div>
-        <div id="productList" class="row productList">
-        </div>
+      <div class="topic"><div>Daily product for you</div></div>
+      <div id="productList" class="row productList"></div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        function generateProductCard() {
-            axios.get('http://software-process-api-bright-kudu.mybluemix.net/products').then(function (response) {
-                console.log(response.data)
-                console.log(response.data.length)
-                var productNameArr = [];
-                var productImgArr = [];
-                var productPriceArr = [];
-                for (var i = 0; i < response.data.length; i++) {
-                    productNameArr.push(response.data[i].productName);
-                    var productImgPerProduct = response.data[i].productImage;
-                    var productImgPerPiece = productImgPerProduct.split(',');
-                    productImgArr.push(productImgPerPiece[0]);
-                    productPriceArr.push(response.data[i].productPrice);
-                }
-                let resultOfProduct = '';
-                for (var i = 0; i < response.data.length; i++) {
-                    resultOfProduct += `
-                            <div class="col-6 productCard">
-                                <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/productDetail.html?sku=${response.data[i].sku}">
-                                    <div class="card " style="width: 100%;">
-                                        <img class="card-img-top" src="productImage/${productImgArr[i]}">
-                                        <div class="card-body productDetail">
-                                            <p class="card-text productName">${productNameArr[i]}</p>
-                                            <p class="card-text productPrice" style="text-align:right;">${productPriceArr[i] + ".00฿"}</p>
+      function generateProductCard() {
+        axios
+          .get('http://software-process-api-bright-kudu.mybluemix.net/products')
+          .then(function(response) {
+            console.log(response.data)
+            console.log(response.data.length)
+            var productNameArr = []
+            var productImgArr = []
+            var productPriceArr = []
+            for (var i = 0; i < response.data.length; i++) {
+              productNameArr.push(response.data[i].productName)
+              var productImgPerProduct = response.data[i].productImage
+              var productImgPerPiece = productImgPerProduct.split(',')
+              productImgArr.push(productImgPerPiece[0])
+              productPriceArr.push(response.data[i].productPrice)
+            }
+            let resultOfProduct = ''
+            for (var i = 0; i < response.data.length; i++) {
+              resultOfProduct += `
+                                        <div class="col-6 productCard">
+                                            <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/productDetail.html?sku=${
+                                              response.data[i].sku
+                                            }">
+                                                <div class="card " style="width: 100%;">
+                                                    <img class="card-img-top" src="productImage/${
+                                                      productImgArr[i]
+                                                    }">
+                                                    <div class="card-body productDetail">
+                                                        <p class="card-text productName">${
+                                                          productNameArr[i]
+                                                        }</p>
+                                                        <p class="card-text productPrice" style="text-align:right;">${productPriceArr[
+                                                          i
+                                                        ] + '.00฿'}</p>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
-                            `
-                }
-                document.getElementById("productList").innerHTML = resultOfProduct;
-            })
-        }
-        window.onload = function () {
-            generateProductCategoryCard()
-            generateProductCard()
-        }
+                                        `
+            }
+            document.getElementById('productList').innerHTML = resultOfProduct
+          })
+      }
+      window.onload = function() {
+        generateProductCategoryCard()
+        generateProductCard()
+      }
     </script>
-    <!-- --------------------------------------------------------------------------------------------------------------- -->
-    <!-- <div class="container">
-        <div class="more">
-            <div>--- More Product ---</div>
-        </div>
-    </div> -->
+    <!--
+      ---------------------------------------------------------------------------------------------------------------
+    -->
+    <!--
+      <div class="container">
+          <div class="more">
+              <div>--- More Product ---</div>
+          </div>
+      </div>
+    -->
     <div class="container contact">
-        <div class="row">
-            <div class="col-6">
-            </div>
-            <div class="col-6 right">
-                Contact us
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6 left">
-                Oned Shopping
-            </div>
-            <div class="col-6 right">
-                080-080-4599
-            </div>
-        </div>
+      <div class="row">
+        <div class="col-6"></div>
+        <div class="col-6 right">Contact us</div>
+      </div>
+      <div class="row">
+        <div class="col-6 left">Oned Shopping</div>
+        <div class="col-6 right">080-080-4599</div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
