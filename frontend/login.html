@@ -122,6 +122,9 @@
                 localStorage.setItem('token', token)
                 localStorage.setItem('expireIn', exp)
                 alert('login สำเร็จ')
+                window.location.replace(
+                  'https://mixkungz.github.io/software-process-ecommerce-project/frontend/home.html'
+                )
               })
               .catch(error => {
                 console.log(error)
