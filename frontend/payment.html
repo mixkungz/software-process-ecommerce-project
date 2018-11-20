@@ -1,71 +1,86 @@
 <!DOCTYPE html>
 <html>
-<header>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Payment</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="paymentStyle.css">
-</header>
+  <header>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" /> <title>Payment</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="paymentStyle.css" />
+  </header>
 
-<body>
-    <form>
-        <div class="container">
-            <span class="headTitle"><strong>Payment</strong></span>
-            <hr style="width:90%; margin-left:5%; margin-right:15%; background-color: #707070; margin-top: 0%" />
-            <br>
-            <input type="checkbox" class="form-select" id="cashOnDelivery" required>
-            <span class="detail"><strong>Cash On Delivery (COD)</strong></span>
-            <br>
-            <br>
-            <span class="headTitle"><strong>Shipping</strong></span>
-            <hr style="width:90%; margin-left:5%; margin-right:15%; background-color: #707070; margin-top: 0%" />
-            <br>
-            <div style="margin-bottom: 108%">
-                <input type="checkbox" class="form-select" id="kerry" required>
-                <img src="kerryLogo.png" width="auto" height="25px" class="detail">
-            </div>
-        </div>
-        <footer>
-            <div class="container">
-                <button class="button" name="submit" style="font-size: 18pt" onclick="getPaymentShippingData()">
-                    <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/order.html">
-                        <strong>Confirm</strong>
-                    </a>
-                </button>
-                <br>
-            </div>
-        </footer>
-    </form>
+  <body>
+    <div class="container">
+      <span class="headTitle"><strong>Payment</strong></span>
+      <hr
+        style="width:90%; margin-left:5%; margin-right:15%; background-color: #707070; margin-top: 0%"
+      />
+      <br />
+      <input type="checkbox" class="form-select" id="cashOnDelivery" required />
+      <span class="detail"><strong>Cash On Delivery (COD)</strong></span> <br />
+      <br />
+      <span class="headTitle"><strong>Shipping</strong></span>
+      <hr
+        style="width:90%; margin-left:5%; margin-right:15%; background-color: #707070; margin-top: 0%"
+      />
+      <br />
+      <div style="margin-bottom: 108%">
+        <input type="checkbox" class="form-select" id="kerry" required />
+        <img src="kerryLogo.png" width="auto" height="25px" class="detail" />
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <button
+          class="button"
+          name="submit"
+          style="font-size: 18pt"
+          onclick="getPaymentShippingData()"
+        >
+          <a
+            href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/order.html"
+          >
+            <strong>Confirm</strong>
+          </a>
+        </button>
+        <br />
+      </div>
+    </footer>
     <script>
-        function getPaymentShippingData() {
-
-            var Payment = {
-                id: '1',
-                paymentType: 'COD'
-            };
-            var Shipping = {
-                id: '1',
-                shippingType: 'Kerry'
-            };
-
-            var dehydratedPayment = JSON.stringify(Payment);
-            window.localStorage.setItem('Payment', dehydratedPayment);
-            var dehydratedPayment = JSON.parse(window.localStorage.getItem('Payment'));
-
-            var dehydratedShipping = JSON.stringify(Shipping);
-            window.localStorage.setItem('Shipping', dehydratedShipping);
-            var dehydratedShipping = JSON.parse(window.localStorage.getItem('Shipping'));
+      function getPaymentShippingData() {
+        var Payment = {
+          id: '1',
+          paymentType: 'COD'
+        }
+        var Shipping = {
+          id: '1',
+          shippingType: 'Kerry'
         }
 
+        var dehydratedPayment = JSON.stringify(Payment)
+        window.localStorage.setItem('Payment', dehydratedPayment)
+        var dehydratedPayment = JSON.parse(window.localStorage.getItem('Payment'))
+
+        var dehydratedShipping = JSON.stringify(Shipping)
+        window.localStorage.setItem('Shipping', dehydratedShipping)
+        var dehydratedShipping = JSON.parse(window.localStorage.getItem('Shipping'))
+
+        window.location.replace(
+          'https://mixkungz.github.io/software-process-ecommerce-project/frontend/order.html'
+        )
+      }
     </script>
-
-</body>
-
+  </body>
 </html>

@@ -1,102 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="AddressJS.js"></script>
 
-    <link rel="script" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
+    <link rel="script" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="addr">
-            <p class="addrTecxt">Address</p>
-            <hr style="width:100%; margin-left:1%; margin-right:8%; margin-bottom: 3% ; 
-                       background-color:#707070">
+      <div class="addr">
+        <p class="addrTecxt">Address</p>
+        <hr
+          style="width:100%; margin-left:1%; margin-right:8%; margin-bottom: 3% ;
+                       background-color:#707070"
+        />
+      </div>
+
+      <div class="group">
+        <div class="ad">
+          <textarea
+            class="form-control"
+            rows="3"
+            id="Address"
+            name="text"
+            placeholder="Address number"
+            required
+          ></textarea>
+        </div>
+        <!--
+          --------------------------------------------------------------------------------------
+        -->
+        <div class="form-group">
+          <div class="input">
+            <input
+              type="text"
+              class="form-control"
+              id="Subdistrict"
+              placeholder="Subdistrict"
+              name="Subdistrict"
+              required
+            />
+          </div>
         </div>
 
-        <form>
-            <div class="group">
-                <div class="ad">
-                    <textarea class="form-control" rows="3" id="Address" name="text" placeholder="Address number"
-                        required></textarea>
-                </div>
-                <!------------------------------------------------------------------------------------------>
-                <div class="form-group">
-                    <div class="input">
-                        <input type="text" class="form-control" id="Subdistrict" placeholder="Subdistrict" name="Subdistrict"
-                            required>
-                    </div>
-                </div>
-
-                <!-----------------------------------------<-------------------------------------------------->
-                <div class="form-group">
-                    <div class="input">
-                        <input type="text" class="form-control" id="District" placeholder="District" name="District"
-                            required>
-                    </div>
-                </div>
-                <!-----------------------------------------<-------------------------------------------------->
-                <div class="Postcode">
-                    <div class="form-group">
-                        <input type="text" class="form-control Postcode" id="Postcode" placeholder="Postcode" required>
-                    </div>
-                </div>
-                <!-----------------------------------------<-------------------------------------------------->
-                <div class="form-group">
-                    <div class="pro">
-                        <div class="input">
-                            <input type="text" class="form-control" id="Province" placeholder="Province" name="Province"
-                                required>
-                        </div>
-                    </div>
-                </div>
-                <!-----------------------------------------<-------------------------------------------------->
-                <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/payment.html">
-                    <button class="botton" id="Confirm" style="font-size: 18pt; padding:1px 100px;"
-                        onclick="getAddressData()">
-                        <strong>Confirm</strong>
-                    </button>
-                </a>
+        <!--
+          ---------------------------------------<------------------------------------------------
+        -->
+        <div class="form-group">
+          <div class="input">
+            <input
+              type="text"
+              class="form-control"
+              id="District"
+              placeholder="District"
+              name="District"
+              required
+            />
+          </div>
+        </div>
+        <!--
+          ---------------------------------------<------------------------------------------------
+        -->
+        <div class="Postcode">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control Postcode"
+              id="Postcode"
+              placeholder="Postcode"
+              required
+            />
+          </div>
+        </div>
+        <!--
+          ---------------------------------------<------------------------------------------------
+        -->
+        <div class="form-group">
+          <div class="pro">
+            <div class="input">
+              <input
+                type="text"
+                class="form-control"
+                id="Province"
+                placeholder="Province"
+                name="Province"
+                required
+              />
             </div>
-        </form>
+          </div>
+        </div>
+        <!--
+          ---------------------------------------<------------------------------------------------
+        -->
 
+        <button
+          class="botton"
+          id="Confirm"
+          type="submit"
+          style="font-size: 18pt; padding:1px 100px;"
+          onclick="getAddressData()"
+        >
+          <strong>Confirm</strong>
+        </button>
+      </div>
     </div>
     <script>
-        function getAddressData() {
-            var addr = document.getElementById("Address").value;
-            var sub = document.getElementById("Subdistrict").value;
-            var dis = document.getElementById("District").value;
-            var pos = document.getElementById("Postcode").value;
-            var pro = document.getElementById("Province").value;
+      function getAddressData() {
+        var addr = document.getElementById('Address').value
+        var sub = document.getElementById('Subdistrict').value
+        var dis = document.getElementById('District').value
+        var pos = document.getElementById('Postcode').value
+        var pro = document.getElementById('Province').value
 
-            var Address = {
-                addressDescription: addr,
-                Subdistrict: sub,
-                District: dis,
-                Postcode: pos,
-                Province: pro
-            };
-
-            var dehydratedAddress = JSON.stringify(Address);
-            window.localStorage.setItem('Address', dehydratedAddress);
-            var dehydratedAddress = JSON.parse(window.localStorage.getItem('Address'));
+        var Address = {
+          addressDescription: addr,
+          Subdistrict: sub,
+          District: dis,
+          Postcode: pos,
+          Province: pro
         }
 
+        var dehydratedAddress = JSON.stringify(Address)
+        window.localStorage.setItem('Address', dehydratedAddress)
+        var dehydratedAddress = JSON.parse(window.localStorage.getItem('Address'))
+        window.location.replace(
+          'https://mixkungz.github.io/software-process-ecommerce-project/frontend/payment.html'
+        )
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
