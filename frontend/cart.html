@@ -31,7 +31,7 @@
         <label class="form-check-label" for="exampleCheck1">Select All</label>
     </div>
     <!-- สินค้าที่หยิบใส่ตะกร้า -->
-    <div class="productInCart">
+    <div id="productInCart" class="productInCart">
         <!-- <div class="container">
             <div class="row">
                 <div class="col-2 selectItem">
@@ -71,7 +71,7 @@
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        function getPro(){
+        function getPro() {
             var skuArrFromLocalStorage = localStorage.getItem("skuArr")
             skuArrFromLocalStorage = skuArrFromLocalStorage.split(',')
             console.log(skuArrFromLocalStorage)
@@ -85,19 +85,17 @@
                 var sku = skuArrFromLocalStorage[i];
 
                 axios.get('http://localhost:8080/products/' + sku).then(function (response) {
-                    for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
-                        productNameArr.push(skuArrFromLocalStorage[i].productName);
-                        var productImgPerProduct = skuArrFromLocalStorage[i].productImage;
-                        var productImgPerPiece = productImgPerProduct.split(',');
-                        productImgArr.push(productImgPerPiece[0]);
-                        productPriceArr.push(skuArrFromLocalStorage[i].productPrice);
-                        productColorArr.push(skuArrFromLocalStorage[i].productPrice);
-                        productSizeArr.push(skuArrFromLocalStorage[i].productPrice);
-                    }
+                    productNameArr.push(response.data.productName);
+                    var productImgPerProduct = response.data.productImage;
+                    var productImgPerPiece = productImgPerProduct.split(',');
+                    productImgArr.push(productImgPerPiece[0]);
+                    productPriceArr.push(response.data.productPrice);
+                    productColorArr.push(response.data.productPrice);
+                    productSizeArr.push(response.data.productPrice);
+
                 })
             }
             console.log(productNameArr)
-
             let resultOfProduct = '';
             for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
                 resultOfProduct += `
