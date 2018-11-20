@@ -23,7 +23,7 @@
         var url = new URL(url_string);
         var sku = url.searchParams.get("sku");
         console.log(sku);
-        axios.get('http://localhost:8080/products/' + sku).then(function (response) {
+        axios.get('https://software-process-api-bright-kudu.mybluemix.net/products/' + sku).then(function (response) {
             document.getElementById("productDescription").innerHTML = response.data.productDescription;
             document.getElementById("color").style.color = response.data.color;
             document.getElementById("productName").innerHTML = response.data.productName;
@@ -138,7 +138,7 @@
         var url = new URL(url_string);
         var sku = url.searchParams.get("sku");
         console.log(sku);
-        axios.get('http://localhost:8080/products/' + sku).then(function (response) {
+        axios.get('https://software-process-api-bright-kudu.mybluemix.net/products/' + sku).then(function (response) {
             console.log(response);
             document.getElementById("productDescription").innerHTML = response.data.productDescription;
             document.getElementById("color").style.color = response.data.color;

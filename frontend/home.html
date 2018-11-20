@@ -78,7 +78,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function generateProductCard() {
-            axios.get('http://software-process-api-bright-kudu.mybluemix.net/products').then(function (response) {
+            axios.get('https://software-process-api-bright-kudu.mybluemix.net/products').then(function (response) {
                 console.log(response.data)
                 console.log(response.data.length)
                 var productNameArr = [];

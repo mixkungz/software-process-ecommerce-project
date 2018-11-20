@@ -46,7 +46,7 @@
 
                 for (var i = 0; i < skuArrFromLocalStorage.length; i++) {
                     let sku = skuArrFromLocalStorage[i]
-                    let { data } = await axios.get('http://software-process-api-bright-kudu.mybluemix.net/products/' + sku)
+                    let { data } = await axios.get('https://software-process-api-bright-kudu.mybluemix.net/products/' + sku)
                     await productNameArr.push(data.productName)
                     let productImgPerProduct = data.productImage
                     let productImgPerPiece = productImgPerProduct.split(',')

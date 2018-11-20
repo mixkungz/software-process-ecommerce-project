@@ -105,7 +105,7 @@
             const [firstName, lastName] = name.split(' ')
             axios({
               method: 'post',
-              url: 'http://software-process-api-bright-kudu.mybluemix.net/auth/login/facebook',
+              url: 'https://software-process-api-bright-kudu.mybluemix.net/auth/login/facebook',
               params: {
                 facebookId: id,
                 firstName,
@@ -131,7 +131,7 @@
       // Send a POST request
       axios({
         method: 'post',
-        url: 'http://software-process-api-bright-kudu.mybluemix.net/auth/login',
+        url: 'https://software-process-api-bright-kudu.mybluemix.net/auth/login',
         params: {
           username: x,
           password: y
