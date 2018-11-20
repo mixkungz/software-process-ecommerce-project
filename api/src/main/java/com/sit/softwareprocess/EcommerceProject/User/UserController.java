@@ -26,21 +26,13 @@ public class UserController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/createUser"
+            value = "/users"
     )
+    public ResponseEntity<User> createUser(@RequestBody User user){
+            user.setAdmin(false);
+            User user_object = userService.createUser(user);
+            return new ResponseEntity<User>(user_object,HttpStatus.OK);
 
-
-    public ResponseEntity<User> createUser(@RequestParam("username") String username,
-                                        @RequestParam("password") String password,
-                                        @RequestParam("firstname") String firstname,
-                                        @RequestParam("lastname") String lastname,
-                                        @RequestParam("email") String email,
-                                        @RequestParam("telephonenumber") String telephoneNumber){
-
-            boolean isAdmin = true; //if user is true and admin is false
-            User user = new User(username,password,firstname,lastname,email,telephoneNumber,isAdmin);
-            User userCreate = userService.createUser(user);
-            return new ResponseEntity<User>(userCreate,HttpStatus.OK);
     }
 
 }

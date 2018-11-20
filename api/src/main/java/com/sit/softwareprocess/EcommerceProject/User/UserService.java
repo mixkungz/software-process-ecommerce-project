@@ -14,9 +14,10 @@ public class UserService {
     }
 
     public User createUser(User user){
-       return userRepository.save(user);
+        return userRepository.save(user);
     }
 
-        public User getUserByUsername(String username){return userRepository.findByUsername(username);}
+    public User getUserByFacebookId(String facebookId){return  userRepository.findByFacebookId(facebookId);}
+
 
 }
