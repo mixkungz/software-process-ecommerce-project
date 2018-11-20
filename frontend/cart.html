@@ -96,7 +96,6 @@
                 for (var i = 0; i < productPriceArr.length; i++) {
                     totalPrice += productPriceArr[i]
                 }
-                console.log(totalPrice)
                 document.getElementById('productInCart').innerHTML = resultOfProduct;
                 document.getElementById('totalPrice').innerHTML = totalPrice + ".00฿";
             }
@@ -126,14 +125,28 @@
             <p>Total</p>
         </div>
         <div id="totalPrice" class="col calPrice">
-            <p>2,185.00฿</p>
+            <p></p>
         </div>
     </div>
 
     <div class="order">
-        <button class="buttonOrder" style="font-size: 18pt"><strong>Order</strong></button>
+        <a href="" id="link">
+            <button class="buttonOrder" style="font-size: 18pt" onclick="order()"><strong>Order</strong></button>
+        </a>
     </div>
     <br />
+    <script>
+        function order() {
+            console.log('ss')
+            var token = localStorage.getItem('token');
+            console.log(token)
+            if (token != null) {
+                document.getElementById('link').href = 'http://localhost:8888/order.html';
+            }else{
+                document.getElementById('link').href = 'http://localhost:8888/login.html';
+            }
+        }
+    </script>
 </body>
 
 </html>
