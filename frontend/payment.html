@@ -36,13 +36,35 @@
         </div>
         <footer>
             <div class="container">
-                <button class="button" type="submit" name="submit" style="font-size: 18pt">
+                <button class="button" type="submit" name="submit" style="font-size: 18pt" onclick="getPaymentShippingData()">
                     <strong>Confirm</strong>
                 </button>
                 <br>
             </div>
         </footer>
     </form>
+    <script>
+        function getPaymentShippingData() {
+
+            var Payment = {
+                id: '1',
+                paymentType: 'COD'
+            };
+            var Shipping = {
+                id: '1',
+                shippingType: 'Kerry'
+            };
+
+            var dehydratedPayment = JSON.stringify(Payment);
+            window.localStorage.setItem('Payment', dehydratedPayment);
+            var dehydratedPayment = JSON.parse(window.localStorage.getItem('Payment'));
+
+            var dehydratedShipping = JSON.stringify(Shipping);
+            window.localStorage.setItem('Shipping', dehydratedShipping);
+            var dehydratedShipping = JSON.parse(window.localStorage.getItem('Shipping'));
+        }
+
+    </script>
 
 </body>
 
