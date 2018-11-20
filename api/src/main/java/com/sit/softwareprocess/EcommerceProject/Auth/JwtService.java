@@ -76,7 +76,7 @@ public class JwtService {
             DecodedJWT jwt = verifier.verify(token);
 
             if(!isTokenExpire(token)) return jwt.getClaim("id").asInt();
-
+            return -1;
         } catch (JWTVerificationException exception){
             //Invalid signature/claims
             throw new JWTVerificationException(exception.getMessage());
