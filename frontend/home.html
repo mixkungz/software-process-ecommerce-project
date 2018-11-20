@@ -40,16 +40,11 @@
           <div class="BigText">Fashion Clothes</div>
           <span class="SmallText">Discount more than 20%</span>
         </div>
-        <<<<<<< HEAD
       </div>
       <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/cart.html">
         <i class="fas fa-shopping-cart"></i>
       </a>
-      <i class="far fa-user"></i> =======
-      <a href="https://mixkungz.github.io/software-process-ecommerce-project/frontend/cart.html">
-        <i class="fas fa-shopping-cart"></i>
-      </a>
-      <i class="far fa-user"></i> >>>>>>> dbde4088dc52dd3d9bbd241f1c3934b031aa1953
+      <i class="far fa-user"></i>
     </div>
     <div class="background">
       <img src="homepic/media1.png" class="img-fluid media" alt="Responsive image" />
@@ -88,19 +83,19 @@
         let resultOfCategory = ''
         for (var i = 0; i < 6; i++) {
           resultOfCategory += `
-                                              <div class="col-4">
-                                                  <div class="card categoryCard">
-                                                      <img class="card-img-top"  src='homepic/${
-                                                        categoryImgArr[i]
-                                                      }'>
-                                                      <div class="card-body categoryName">
-                                                          <p class="card-text cateName">${
-                                                            categoryNameArr[i]
-                                                          }</p>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          `
+                                  <div class="col-4">
+                                      <div class="card categoryCard">
+                                          <img class="card-img-top"  src='homepic/${
+                                            categoryImgArr[i]
+                                          }'>
+                                          <div class="card-body categoryName">
+                                              <p class="card-text cateName">${
+                                                categoryNameArr[i]
+                                              }</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              `
         }
         document.getElementById('categoryList').innerHTML = resultOfCategory
       }
@@ -149,7 +144,10 @@
                                                     i
                                                   ] + '.00฿'}</p>
                                               </div>
-                                              `
+                                          </div>
+                                      </a>
+                                  </div>
+                                  `
             }
             document.getElementById('productList').innerHTML = resultOfProduct
           })
