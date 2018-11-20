@@ -13,10 +13,12 @@ public class UserService {
          return userRepository.getOne(id);
     }
 
-    public void createUser(String username, String password, String firstName, String lastName,  String email, String telephoneNumber,boolean isAdmin){
-        User user = new User(username,password,firstName,lastName,email,telephoneNumber,isAdmin);
-        userRepository.save(user);
+    public User createUser(User user){
+        return userRepository.save(user);
     }
     public User getUserByUsername(String username){return userRepository.findByUsername(username);}
+
+    public User getUserByFacebookId(String facebookId){return  userRepository.findByFacebookId(facebookId);}
+
 
 }
